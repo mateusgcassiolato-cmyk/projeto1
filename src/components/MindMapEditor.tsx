@@ -94,14 +94,14 @@ export function MindMapEditor({
   return (
     <div className="flex flex-col h-[calc(100vh-5rem)] md:h-[calc(100vh-4rem)] -mx-4 md:-mx-8 -mt-20 md:-mt-8">
       {/* Barra superior */}
-      <div className="flex items-center gap-3 px-4 md:px-6 h-16 border-b border-slate-200 bg-white shrink-0">
-        <button onClick={onBack} className="p-2 rounded-lg hover:bg-slate-100 text-slate-600">
+      <div className="flex items-center gap-3 px-4 md:px-6 h-16 border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 shrink-0">
+        <button onClick={onBack} className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300">
           <ArrowLeft size={20} />
         </button>
         <input
           value={map.title}
           onChange={(e) => renameMindMap(mapId, e.target.value)}
-          className="font-semibold text-slate-900 bg-transparent outline-none focus:bg-slate-50 rounded px-2 py-1 flex-1 min-w-0"
+          className="font-semibold text-slate-900 dark:text-white bg-transparent outline-none focus:bg-slate-50 dark:focus:bg-slate-800 rounded px-2 py-1 flex-1 min-w-0"
         />
         <div className="hidden sm:flex items-center gap-1 text-xs text-slate-400">
           Arraste o fundo para mover · arraste os nós para posicionar
@@ -110,7 +110,7 @@ export function MindMapEditor({
 
       {/* Canvas */}
       <div
-        className="relative flex-1 overflow-hidden bg-slate-50 touch-none"
+        className="relative flex-1 overflow-hidden bg-slate-50 dark:bg-slate-950 touch-none"
         style={{
           backgroundImage:
             "radial-gradient(circle, #d6dbe4 1px, transparent 1px)",
@@ -200,17 +200,17 @@ export function MindMapEditor({
         </div>
 
         {/* Controles de zoom */}
-        <div className="absolute bottom-4 right-4 flex flex-col gap-1 bg-white rounded-xl border border-slate-200 shadow-sm p-1">
+        <div className="absolute bottom-4 right-4 flex flex-col gap-1 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-sm p-1">
           <button
             onClick={() => setScale((s) => Math.min(2, +(s + 0.1).toFixed(2)))}
-            className="p-2 rounded-lg hover:bg-slate-100 text-slate-600"
+            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
             title="Aproximar"
           >
             <ZoomIn size={18} />
           </button>
           <button
             onClick={() => setScale((s) => Math.max(0.4, +(s - 0.1).toFixed(2)))}
-            className="p-2 rounded-lg hover:bg-slate-100 text-slate-600"
+            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
             title="Afastar"
           >
             <ZoomOut size={18} />
@@ -220,7 +220,7 @@ export function MindMapEditor({
               setScale(1);
               setPan({ x: 0, y: 0 });
             }}
-            className="p-2 rounded-lg hover:bg-slate-100 text-slate-600"
+            className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
             title="Resetar visão"
           >
             <Maximize size={18} />
@@ -229,7 +229,7 @@ export function MindMapEditor({
 
         {/* Painel do nó selecionado */}
         {selectedNode && (
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white rounded-xl border border-slate-200 shadow-md px-3 py-2 animate-fade-in">
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 shadow-md px-3 py-2 animate-fade-in">
             <button
               onClick={() => addNode(mapId, selectedNode.id, "Novo nó")}
               className="flex items-center gap-1 text-sm font-medium px-3 py-1.5 rounded-lg bg-brand-600 text-white hover:bg-brand-700"
@@ -238,12 +238,12 @@ export function MindMapEditor({
             </button>
             <button
               onClick={() => setEditing(selectedNode.id)}
-              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-600"
+              className="p-1.5 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
               title="Editar texto"
             >
               <Pencil size={16} />
             </button>
-            <div className="flex items-center gap-1 px-1 border-l border-slate-200">
+            <div className="flex items-center gap-1 px-1 border-l border-slate-200 dark:border-slate-700">
               {NODE_COLORS.slice(0, 6).map((c) => (
                 <button
                   key={c}
@@ -259,7 +259,7 @@ export function MindMapEditor({
                   deleteNode(mapId, selectedNode.id);
                   setSelected(null);
                 }}
-                className="p-1.5 rounded-lg hover:bg-red-50 text-red-500 border-l border-slate-200 ml-1"
+                className="p-1.5 rounded-lg hover:bg-red-50 dark:hover:bg-red-500/10 text-red-500 border-l border-slate-200 dark:border-slate-700 ml-1"
                 title="Excluir nó"
               >
                 <Trash2 size={16} />

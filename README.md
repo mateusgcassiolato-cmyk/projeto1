@@ -10,7 +10,9 @@ Tudo em um só lugar: planeje campanhas em mapas mentais, capture ideias em nota
 - **Mapas Mentais** — canvas interativo com nós arrastáveis, conexões, zoom/pan, cores e edição inline. Ideal para brainstorms e planejamento de campanhas.
 - **Anotações** — notas estilo "post-it" com cores, tags, fixar (pin) e busca.
 - **Tarefas (Kanban)** — quadro com colunas *Backlog → A fazer → Em andamento → Concluído*, arrastar e soltar, prioridade, prazo e canal de marketing.
+- **Calendário Editorial** — planejamento mensal de posts de social media (Instagram, Facebook, LinkedIn, TikTok, X, YouTube), com formato, horário, status (ideia → produção → agendado → publicado) e legenda.
 - **Metas & OKRs** — objetivos por trimestre com resultados-chave (KRs) e barras de progresso.
+- **🌙 Modo escuro** — alternador de tema claro/escuro com preferência salva no navegador (respeita também o tema do sistema).
 
 > 💾 Os dados são salvos automaticamente no **localStorage do navegador** — não precisa de backend nem login para começar a usar.
 
@@ -48,14 +50,16 @@ src/
 │   ├── page.tsx           # Dashboard
 │   ├── mapas/             # Mapas mentais
 │   ├── notas/             # Anotações
+│   ├── calendario/        # Calendário editorial de social media
 │   ├── tarefas/           # Kanban de tarefas
 │   └── metas/             # Metas & OKRs
 ├── components/
-│   ├── Sidebar.tsx
+│   ├── Sidebar.tsx        # navegação + alternador de tema
 │   ├── PageShell.tsx      # cabeçalho + guard de hidratação
 │   └── MindMapEditor.tsx  # editor de mapa mental
 └── lib/
     ├── types.ts           # tipos
+    ├── theme.ts           # hook de modo escuro
     └── store.ts           # store Zustand + dados de exemplo
 ```
 

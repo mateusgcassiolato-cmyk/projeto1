@@ -8,6 +8,7 @@ import type {
   MindMap,
   MindNode,
   Note,
+  SocialPost,
   Task,
   TaskStatus,
 } from "./types";
@@ -60,6 +61,12 @@ interface State {
   moveTask: (id: string, status: TaskStatus) => void;
   deleteTask: (id: string) => void;
 
+  // Calendário editorial
+  socialPosts: SocialPost[];
+  createSocialPost: (patch: Partial<SocialPost> & { date: string }) => void;
+  updateSocialPost: (id: string, patch: Partial<SocialPost>) => void;
+  deleteSocialPost: (id: string) => void;
+
   // Metas
   goals: Goal[];
   createGoal: (objective: string, quarter: string) => string;
@@ -69,13 +76,30 @@ interface State {
   deleteKeyResult: (goalId: string, krId: string) => void;
 }
 
-function seed(): Pick<State, "mindMaps" | "notes" | "tasks" | "goals"> {
+function isoShift(days: number): string {
+  const d = new Date();
+  d.setDate(d.getDate() + days);
+  return d.toISOString().slice(0, 10);
+}
+
+function seed(): Pick<
+  State,
+  "mindMaps" | "notes" | "tasks" | "goals" | "socialPosts"
+> {
   const now = Date.now();
   const rootId = uid();
   const c1 = uid();
   const c2 = uid();
   const c3 = uid();
   return {
+    socialPosts: [
+      { id: uid(), date: isoShift(0), platform: "Instagram", format: "Reels", title: "Bastidores do time", caption: "Mostre os bastidores do dia a dia da equipe de marketing. #bastidores", status: "agendado", time: "10:00", createdAt: now },
+      { id: uid(), date: isoShift(0), platform: "LinkedIn", format: "Artigo", title: "Tendências de marketing 2026", caption: "Artigo sobre as principais tendências para o próximo ano.", status: "producao", time: "14:00", createdAt: now },
+      { id: uid(), date: isoShift(2), platform: "Instagram", format: "Carrossel", title: "5 dicas de copywriting", caption: "Carrossel educativo com dicas práticas.", status: "ideia", time: "11:30", createdAt: now },
+      { id: uid(), date: isoShift(3), platform: "TikTok", format: "Vídeo", title: "Trend da semana", caption: "Participar da trend aplicando ao nosso produto.", status: "ideia", time: "18:00", createdAt: now },
+      { id: uid(), date: isoShift(5), platform: "Facebook", format: "Post", title: "Depoimento de cliente", caption: "Post com depoimento do cliente X.", status: "agendado", time: "09:00", createdAt: now },
+      { id: uid(), date: isoShift(-2), platform: "Instagram", format: "Story", title: "Enquete de engajamento", caption: "Enquete rápida nos stories.", status: "publicado", time: "16:00", createdAt: now },
+    ],
     mindMaps: [
       {
         id: uid(),
@@ -275,6 +299,32 @@ export const useStore = create<State>()(
           tasks: s.tasks.map((t) => (t.id === id ? { ...t, status, updatedAt: Date.now() } : t)),
         })),
       deleteTask: (id) => set((s) => ({ tasks: s.tasks.filter((t) => t.id !== id) })),
+
+      // ---------- Calendário editorial ----------
+      createSocialPost: (patch) => {
+        set((s) => ({
+          socialPosts: [
+            {
+              id: uid(),
+              date: patch.date,
+              platform: patch.platform || "Instagram",
+              format: patch.format || "Post",
+              title: patch.title || "Novo post",
+              caption: patch.caption || "",
+              status: patch.status || "ideia",
+              time: patch.time || "09:00",
+              createdAt: Date.now(),
+            },
+            ...s.socialPosts,
+          ],
+        }));
+      },
+      updateSocialPost: (id, patch) =>
+        set((s) => ({
+          socialPosts: s.socialPosts.map((p) => (p.id === id ? { ...p, ...patch } : p)),
+        })),
+      deleteSocialPost: (id) =>
+        set((s) => ({ socialPosts: s.socialPosts.filter((p) => p.id !== id) })),
 
       // ---------- Metas ----------
       createGoal: (objective, quarter) => {

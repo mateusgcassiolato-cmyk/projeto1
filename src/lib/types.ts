@@ -48,6 +48,31 @@ export interface Task {
   updatedAt: number;
 }
 
+// ---------- Calendário Editorial (Social Media) ----------
+export type SocialPlatform =
+  | "Instagram"
+  | "Facebook"
+  | "LinkedIn"
+  | "TikTok"
+  | "X"
+  | "YouTube";
+
+export type PostFormat = "Post" | "Reels" | "Story" | "Carrossel" | "Vídeo" | "Artigo";
+
+export type PostStatus = "ideia" | "producao" | "agendado" | "publicado";
+
+export interface SocialPost {
+  id: ID;
+  date: string; // ISO date yyyy-mm-dd
+  platform: SocialPlatform;
+  format: PostFormat;
+  title: string;
+  caption: string;
+  status: PostStatus;
+  time: string; // HH:mm
+  createdAt: number;
+}
+
 // ---------- Metas / OKRs ----------
 export interface KeyResult {
   id: ID;

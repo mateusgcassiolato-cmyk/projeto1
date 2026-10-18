@@ -14,9 +14,9 @@ const COLUMNS: { id: TaskStatus; label: string; accent: string }[] = [
 ];
 
 const PRIORITY: Record<TaskPriority, { label: string; cls: string }> = {
-  alta: { label: "Alta", cls: "bg-red-100 text-red-700" },
-  media: { label: "Média", cls: "bg-amber-100 text-amber-700" },
-  baixa: { label: "Baixa", cls: "bg-slate-100 text-slate-600" },
+  alta: { label: "Alta", cls: "bg-red-100 text-red-700 dark:bg-red-500/20 dark:text-red-300" },
+  media: { label: "Média", cls: "bg-amber-100 text-amber-700 dark:bg-amber-500/20 dark:text-amber-300" },
+  baixa: { label: "Baixa", cls: "bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300" },
 };
 
 export default function TarefasPage() {
@@ -67,12 +67,14 @@ function Tarefas() {
                 setDragOver(null);
               }}
               className={`rounded-2xl p-3 transition-colors ${
-                dragOver === col.id ? "bg-brand-50 ring-2 ring-brand-200" : "bg-slate-100/70"
+                dragOver === col.id
+                  ? "bg-brand-50 dark:bg-brand-600/10 ring-2 ring-brand-200 dark:ring-brand-500/40"
+                  : "bg-slate-100/70 dark:bg-slate-800/40"
               }`}
             >
               <div className="flex items-center gap-2 px-1 mb-3">
                 <span className={`h-2.5 w-2.5 rounded-full ${col.accent}`} />
-                <span className="font-semibold text-slate-700 text-sm">{col.label}</span>
+                <span className="font-semibold text-slate-700 dark:text-slate-200 text-sm">{col.label}</span>
                 <span className="text-xs text-slate-400">{colTasks.length}</span>
               </div>
 
@@ -84,18 +86,18 @@ function Tarefas() {
                     onDragStart={() => setDragId(t.id)}
                     onDragEnd={() => setDragId(null)}
                     onClick={() => setEditing(t)}
-                    className="bg-white rounded-xl border border-slate-200 p-3 shadow-sm cursor-pointer hover:shadow-md active:cursor-grabbing transition-shadow"
+                    className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-3 shadow-sm cursor-pointer hover:shadow-md active:cursor-grabbing transition-shadow"
                   >
-                    <p className="text-sm font-medium text-slate-800">{t.title}</p>
+                    <p className="text-sm font-medium text-slate-800 dark:text-slate-100">{t.title}</p>
                     {t.description && (
-                      <p className="text-xs text-slate-500 mt-1 line-clamp-2">{t.description}</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2">{t.description}</p>
                     )}
                     <div className="flex items-center gap-2 mt-2 flex-wrap">
                       <span className={`text-[11px] px-2 py-0.5 rounded-full ${PRIORITY[t.priority].cls}`}>
                         {PRIORITY[t.priority].label}
                       </span>
                       {t.channel && (
-                        <span className="text-[11px] px-2 py-0.5 rounded-full bg-brand-50 text-brand-600">
+                        <span className="text-[11px] px-2 py-0.5 rounded-full bg-brand-50 dark:bg-brand-600/20 text-brand-600 dark:text-brand-300">
                           {t.channel}
                         </span>
                       )}
@@ -131,40 +133,40 @@ function TaskEditor({ task, onClose }: { task: Task; onClose: () => void }) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40" onClick={onClose}>
       <div
-        className="w-full max-w-lg bg-white rounded-2xl shadow-xl p-5 animate-fade-in"
+        className="w-full max-w-lg bg-white dark:bg-slate-900 rounded-2xl shadow-xl p-5 animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex items-center justify-between mb-4">
-          <h2 className="font-semibold text-slate-900">Editar tarefa</h2>
-          <button onClick={onClose} className="p-2 rounded-lg hover:bg-slate-100 text-slate-500">
+          <h2 className="font-semibold text-slate-900 dark:text-white">Editar tarefa</h2>
+          <button onClick={onClose} className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-500">
             <X size={20} />
           </button>
         </div>
 
-        <label className="block text-xs font-medium text-slate-500 mb-1">Título</label>
+        <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Título</label>
         <input
           value={task.title}
           onChange={(e) => updateTask(task.id, { title: e.target.value })}
-          className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-brand-200 mb-3"
+          className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40 mb-3"
         />
 
-        <label className="block text-xs font-medium text-slate-500 mb-1">Descrição</label>
+        <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Descrição</label>
         <textarea
           value={task.description}
           onChange={(e) => updateTask(task.id, { description: e.target.value })}
           rows={3}
-          className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-brand-200 resize-none mb-3"
+          className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40 resize-none mb-3"
         />
 
         <div className="grid grid-cols-2 gap-3 mb-3">
           <div>
-            <label className="block text-xs font-medium text-slate-500 mb-1 flex items-center gap-1">
+            <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
               <Flag size={12} /> Prioridade
             </label>
             <select
               value={task.priority}
               onChange={(e) => updateTask(task.id, { priority: e.target.value as TaskPriority })}
-              className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-brand-200 bg-white"
+              className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40 bg-white dark:bg-slate-800"
             >
               <option value="baixa">Baixa</option>
               <option value="media">Média</option>
@@ -172,24 +174,24 @@ function TaskEditor({ task, onClose }: { task: Task; onClose: () => void }) {
             </select>
           </div>
           <div>
-            <label className="block text-xs font-medium text-slate-500 mb-1 flex items-center gap-1">
+            <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1 flex items-center gap-1">
               <Calendar size={12} /> Prazo
             </label>
             <input
               type="date"
               value={task.dueDate ?? ""}
               onChange={(e) => updateTask(task.id, { dueDate: e.target.value || null })}
-              className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-brand-200"
+              className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40"
             />
           </div>
         </div>
 
-        <label className="block text-xs font-medium text-slate-500 mb-1">Canal / Área</label>
+        <label className="block text-xs font-medium text-slate-500 dark:text-slate-400 mb-1">Canal / Área</label>
         <input
           value={task.channel ?? ""}
           onChange={(e) => updateTask(task.id, { channel: e.target.value || null })}
           placeholder="Ex: Social, SEO, E-mail, Ads…"
-          className="w-full px-3 py-2 rounded-xl border border-slate-200 text-sm outline-none focus:ring-2 focus:ring-brand-200 mb-4"
+          className="w-full px-3 py-2 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40 mb-4"
         />
 
         <div className="flex items-center justify-between">

@@ -57,12 +57,12 @@ function Notas() {
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="Buscar notas, conteúdo ou tags…"
-          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm outline-none focus:ring-2 focus:ring-brand-200"
+          className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40"
         />
       </div>
 
       {filtered.length === 0 ? (
-        <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300 text-slate-400">
+        <div className="text-center py-20 bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700 text-slate-400">
           {query ? "Nenhuma nota encontrada." : "Crie sua primeira anotação."}
         </div>
       ) : (

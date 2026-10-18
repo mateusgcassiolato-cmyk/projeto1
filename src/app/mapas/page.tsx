@@ -46,7 +46,7 @@ function Mapas() {
             }
           }}
           placeholder="Nome do novo mapa mental…"
-          className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-sm outline-none focus:ring-2 focus:ring-brand-200"
+          className="flex-1 px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm text-slate-900 dark:text-slate-100 outline-none focus:ring-2 focus:ring-brand-200 dark:focus:ring-brand-500/40"
         />
         <button
           onClick={() => {
@@ -67,11 +67,11 @@ function Mapas() {
           {mindMaps.map((m) => (
             <div
               key={m.id}
-              className="group bg-white rounded-2xl border border-slate-200 p-5 shadow-sm hover:shadow-md transition-all cursor-pointer"
+              className="group bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-5 shadow-sm hover:shadow-md transition-all cursor-pointer"
               onClick={() => setOpenId(m.id)}
             >
               <div className="flex items-start justify-between">
-                <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 text-brand-600">
+                <div className="grid h-10 w-10 place-items-center rounded-xl bg-brand-50 dark:bg-brand-600/20 text-brand-600 dark:text-brand-400">
                   <Brain size={20} />
                 </div>
                 <button
@@ -79,12 +79,12 @@ function Mapas() {
                     e.stopPropagation();
                     if (confirm(`Excluir "${m.title}"?`)) deleteMindMap(m.id);
                   }}
-                  className="text-slate-300 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
+                  className="text-slate-300 dark:text-slate-600 hover:text-red-500 opacity-0 group-hover:opacity-100 transition-opacity"
                 >
                   <Trash2 size={18} />
                 </button>
               </div>
-              <h3 className="font-semibold text-slate-900 mt-3">{m.title}</h3>
+              <h3 className="font-semibold text-slate-900 dark:text-white mt-3">{m.title}</h3>
               <div className="flex items-center gap-3 text-xs text-slate-400 mt-2">
                 <span>{m.nodes.length} nós</span>
                 <span className="flex items-center gap-1">
@@ -102,11 +102,11 @@ function Mapas() {
 
 function EmptyState() {
   return (
-    <div className="text-center py-20 bg-white rounded-2xl border border-dashed border-slate-300">
-      <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-50 text-brand-600">
+    <div className="text-center py-20 bg-white dark:bg-slate-900 rounded-2xl border border-dashed border-slate-300 dark:border-slate-700">
+      <div className="mx-auto grid h-14 w-14 place-items-center rounded-2xl bg-brand-50 dark:bg-brand-600/20 text-brand-600 dark:text-brand-400">
         <Brain size={28} />
       </div>
-      <p className="mt-4 font-medium text-slate-700">Nenhum mapa mental ainda</p>
+      <p className="mt-4 font-medium text-slate-700 dark:text-slate-200">Nenhum mapa mental ainda</p>
       <p className="text-sm text-slate-400">Crie seu primeiro mapa acima para começar.</p>
     </div>
   );
