@@ -251,82 +251,88 @@ function Hero() {
         </div>
 
         {/* Visual 3D */}
-        <div className="relative h-[440px] md:h-[540px] perspective">
+        <div className="relative perspective mt-8 lg:mt-0">
+          {/* Halo suave atrás do painel */}
+          <div className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-72 w-72 rounded-full bg-aqua-400/20 blur-3xl" />
+
+          {/* Raquete como acento, bem atrás e deslocada */}
+          <Parallax speed={-0.12} className="pointer-events-none absolute -right-6 -bottom-10 opacity-40 z-0 hidden sm:block">
+            <PadelRacket size={120} className="animate-float-slow" />
+          </Parallax>
+
           <div
-            className="relative h-full w-full preserve-3d"
+            className="relative z-10 mx-auto w-full max-w-[22rem] preserve-3d"
             style={{
               transform: `rotateY(${mouse.x}deg) rotateX(${-mouse.y}deg)`,
-              transition: "transform .2s ease-out",
+              transition: "transform .25s ease-out",
             }}
           >
-            {/* Card principal: dashboard do clube */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-72 md:w-[22rem] animate-float">
-              <div className="rounded-3xl glass p-5 shadow-2xl">
+            {/* Bola de tênis — acento no canto superior */}
+            <div className="absolute -top-10 -left-8 z-20 animate-bounce-ball">
+              <TennisBall size={76} className="drop-shadow-2xl animate-spin-slow" />
+            </div>
+
+            {/* Âncora da composição (card + chips) */}
+            <div className="relative animate-float">
+              {/* Painel principal */}
+              <div className="rounded-3xl glass p-6 shadow-2xl">
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs text-court-100/60">Painel do clube</p>
-                    <p className="font-bold text-lg">R$ 48.250</p>
-                    <p className="text-[11px] text-aqua-300">faturamento do mês · +18%</p>
+                    <p className="font-black text-2xl mt-0.5">R$ 48.250</p>
+                    <p className="text-xs text-aqua-300 mt-0.5">faturamento do mês · +18%</p>
                   </div>
-                  <span className="grid h-10 w-10 place-items-center rounded-xl bg-aqua-400/20 text-aqua-300">
-                    <LineChart size={20} />
+                  <span className="grid h-11 w-11 place-items-center rounded-xl bg-aqua-400/20 text-aqua-300">
+                    <LineChart size={22} />
                   </span>
                 </div>
 
                 {/* mini gráfico */}
-                <div className="mt-4 flex items-end gap-1.5 h-16">
+                <div className="mt-5 flex items-end gap-1.5 h-20">
                   {[40, 55, 48, 70, 62, 85, 78].map((h, i) => (
                     <span
                       key={i}
-                      className="flex-1 rounded-t bg-gradient-to-t from-aqua-500/40 to-ball-400"
+                      className="flex-1 rounded-md bg-gradient-to-t from-aqua-500/40 to-ball-400"
                       style={{ height: `${h}%` }}
                     />
                   ))}
                 </div>
 
-                <div className="mt-4 grid grid-cols-2 gap-2">
-                  <div className="rounded-xl bg-white/5 px-3 py-2">
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <div className="rounded-2xl bg-white/5 px-4 py-3">
                     <p className="text-[11px] text-court-100/60">Ocupação</p>
-                    <p className="font-bold">94%</p>
+                    <p className="font-bold text-lg">94%</p>
                   </div>
-                  <div className="rounded-xl bg-white/5 px-3 py-2">
+                  <div className="rounded-2xl bg-white/5 px-4 py-3">
                     <p className="text-[11px] text-court-100/60">Inadimplência</p>
-                    <p className="font-bold text-aqua-300">2,1%</p>
+                    <p className="font-bold text-lg text-aqua-300">2,1%</p>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Card de notificação flutuante */}
-            <div className="absolute -top-2 right-0 w-56 animate-float" style={{ animationDelay: "0.8s" }}>
-              <div className="rounded-2xl glass px-4 py-3 flex items-center gap-3">
-                <span className="grid h-9 w-9 place-items-center rounded-lg bg-ball-400/20 text-ball-400">
-                  <CreditCard size={18} />
-                </span>
-                <div>
-                  <p className="text-sm font-semibold leading-tight">Mensalidade paga</p>
-                  <p className="text-[11px] text-court-100/60">Ana R. · R$ 320 via Pix</p>
+              {/* Chip: reserva — ancorado acima da borda direita */}
+              <div className="absolute -top-6 right-3 z-20 animate-float" style={{ animationDelay: "1s" }}>
+                <div className="rounded-2xl glass px-3.5 py-2.5 flex items-center gap-2">
+                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-aqua-400/20 text-aqua-300">
+                    <CalendarCheck size={16} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold leading-tight">Quadra 3 reservada</p>
+                    <p className="text-[10px] text-court-100/60">hoje · 18h–19h</p>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Bola de tênis 3D quicando */}
-            <div className="absolute top-6 left-2 animate-bounce-ball" style={{ transform: "translateZ(80px)" }}>
-              <TennisBall size={92} className="drop-shadow-2xl animate-spin-slow" />
-            </div>
-
-            {/* Raquete de padel */}
-            <Parallax speed={-0.15} className="absolute -bottom-4 -left-2">
-              <PadelRacket size={140} className="drop-shadow-2xl animate-float-slow" />
-            </Parallax>
-
-            {/* Badge reserva */}
-            <div className="absolute bottom-6 right-2 rounded-2xl glass px-4 py-3 animate-float" style={{ animationDelay: "1.4s" }}>
-              <div className="flex items-center gap-2">
-                <CalendarCheck className="text-aqua-300" size={20} />
-                <div>
-                  <p className="text-sm font-bold leading-none">Quadra 3 reservada</p>
-                  <p className="text-[11px] text-court-100/60">hoje · 18h–19h</p>
+              {/* Chip: pagamento — ancorado abaixo da borda esquerda */}
+              <div className="absolute -bottom-6 -left-5 z-20 animate-float" style={{ animationDelay: "1.6s" }}>
+                <div className="rounded-2xl glass px-3.5 py-2.5 flex items-center gap-2">
+                  <span className="grid h-8 w-8 place-items-center rounded-lg bg-ball-400/20 text-ball-400">
+                    <CreditCard size={16} />
+                  </span>
+                  <div>
+                    <p className="text-xs font-bold leading-tight">Mensalidade paga</p>
+                    <p className="text-[10px] text-court-100/60">Ana R. · R$ 320 · Pix</p>
+                  </div>
                 </div>
               </div>
             </div>
