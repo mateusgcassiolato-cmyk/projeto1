@@ -19,7 +19,7 @@ import { useState } from "react";
 import { useTheme } from "@/lib/theme";
 
 const nav = [
-  { href: "/", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/mapas", label: "Mapas Mentais", icon: Brain },
   { href: "/notas", label: "Anotações", icon: StickyNote },
   { href: "/calendario", label: "Calendário Editorial", icon: CalendarDays },
@@ -33,13 +33,13 @@ export function Sidebar() {
   const { theme, toggle } = useTheme();
 
   const isActive = (href: string) =>
-    href === "/" ? pathname === "/" : pathname.startsWith(href);
+    href === "/dashboard" ? pathname === "/dashboard" : pathname.startsWith(href);
 
   return (
     <>
       {/* Topbar mobile */}
       <div className="md:hidden fixed top-0 inset-x-0 z-40 flex items-center justify-between bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 h-14">
-        <Link href="/" className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
+        <Link href="/dashboard" className="flex items-center gap-2 font-semibold text-slate-900 dark:text-white">
           <span className="grid h-8 w-8 place-items-center rounded-lg bg-brand-600 text-white">
             <Sparkles size={18} />
           </span>

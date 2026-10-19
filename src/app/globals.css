@@ -52,3 +52,60 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* ---- Landing page (tênis/padel) — utilidades 3D & parallax ---- */
+.perspective {
+  perspective: 1200px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+/* Textura de quadra de saibro/grama em gradiente */
+.court-gradient {
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(198, 239, 34, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 0% 20%, rgba(52, 210, 127, 0.22), transparent 55%),
+    linear-gradient(160deg, #0a4f31 0%, #0b623a 35%, #0a7c45 70%, #0c9a53 100%);
+}
+
+/* Linhas da quadra em perspectiva */
+.court-lines {
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.12) 2px, transparent 2px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.12) 2px, transparent 2px);
+  background-size: 64px 64px;
+  mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.text-gradient-ball {
+  background: linear-gradient(90deg, #d8f84a, #6ee7a6, #34d27f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

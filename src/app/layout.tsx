@@ -1,17 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
-import { Sidebar } from "@/components/Sidebar";
 
 export const metadata: Metadata = {
-  title: "MarketingFlow — Produtividade & Mapas Mentais",
+  title: "MatchPoint — Mais alunos e quadras lotadas para clubes de tênis e padel",
   description:
-    "Sistema de produtividade, organização, mapas mentais e anotações para Head de Marketing.",
+    "Marketing e gestão de agenda para donos de clubes de tênis e padel. Encha suas quadras nos horários ociosos e fidelize seus alunos.",
 };
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#4f46e5",
+  themeColor: "#15803d",
 };
 
 export default function RootLayout({
@@ -28,12 +27,7 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body>
-        <div className="flex min-h-screen">
-          <Sidebar />
-          <main className="flex-1 min-w-0 md:pl-64">{children}</main>
-        </div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
