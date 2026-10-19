@@ -64,12 +64,36 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   backface-visibility: hidden;
 }
 
+/* Base escura moderna (verde-petróleo) */
+.app-bg {
+  background:
+    radial-gradient(1100px 700px at 85% -5%, rgba(62, 233, 212, 0.12), transparent 55%),
+    radial-gradient(900px 600px at 5% 10%, rgba(198, 239, 34, 0.08), transparent 55%),
+    #041f16;
+}
+
 /* Textura de quadra de saibro/grama em gradiente */
 .court-gradient {
   background:
-    radial-gradient(1200px 600px at 80% -10%, rgba(198, 239, 34, 0.18), transparent 60%),
-    radial-gradient(900px 500px at 0% 20%, rgba(52, 210, 127, 0.22), transparent 55%),
-    linear-gradient(160deg, #0a4f31 0%, #0b623a 35%, #0a7c45 70%, #0c9a53 100%);
+    radial-gradient(1200px 600px at 80% -10%, rgba(198, 239, 34, 0.16), transparent 60%),
+    radial-gradient(900px 500px at 0% 20%, rgba(62, 233, 212, 0.18), transparent 55%),
+    linear-gradient(160deg, #052e1d 0%, #0a4f31 40%, #0b623a 72%, #0a7c45 100%);
+}
+
+/* Fundo aurora/mesh animado */
+.aurora {
+  position: absolute;
+  inset: -20% -10%;
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+.aurora span {
+  position: absolute;
+  display: block;
+  border-radius: 999px;
+  opacity: 0.55;
+  animation: aurora 18s ease-in-out infinite;
 }
 
 /* Linhas da quadra em perspectiva */
@@ -81,15 +105,43 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   mask-image: linear-gradient(to bottom, transparent, black 30%, black 70%, transparent);
 }
 
+/* ---- Liquid glass ---- */
 .glass {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.04));
+  backdrop-filter: blur(22px) saturate(170%);
+  -webkit-backdrop-filter: blur(22px) saturate(170%);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05),
+    0 24px 60px -24px rgba(0, 0, 0, 0.55);
+}
+/* reflexo superior “líquido” */
+.glass::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.5), transparent 40%, transparent 70%, rgba(62, 233, 212, 0.35));
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.glass-soft {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02));
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18);
 }
 
 .text-gradient-ball {
-  background: linear-gradient(90deg, #d8f84a, #6ee7a6, #34d27f);
+  background: linear-gradient(90deg, #d8f84a, #7ff5e4, #3ee9d4);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;

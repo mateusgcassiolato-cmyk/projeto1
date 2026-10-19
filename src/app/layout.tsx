@@ -2,9 +2,9 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "MatchPoint — Mais alunos e quadras lotadas para clubes de tênis e padel",
+  title: "MatchPoint — Sistema completo de gestão para clubes de tênis e padel",
   description:
-    "Marketing e gestão de agenda para donos de clubes de tênis e padel. Encha suas quadras nos horários ociosos e fidelize seus alunos.",
+    "Reserva de quadras, alunos, mensalidades, financeiro e app para o aluno em um só sistema. A gestão completa do seu clube de tênis ou padel, sem planilhas.",
 };
 
 export const viewport: Viewport = {

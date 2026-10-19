@@ -43,6 +43,13 @@ const config: Config = {
           500: "#c6ef22",
           600: "#a7d108",
         },
+        // Ciano/menta — acento moderno
+        aqua: {
+          300: "#7ff5e4",
+          400: "#3ee9d4",
+          500: "#14d3bd",
+          600: "#0bb5a2",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],
@@ -81,6 +88,11 @@ const config: Config = {
           "0%": { transform: "scale(0.9)", opacity: "0.7" },
           "100%": { transform: "scale(1.8)", opacity: "0" },
         },
+        aurora: {
+          "0%,100%": { transform: "translate3d(0,0,0) scale(1)" },
+          "33%": { transform: "translate3d(4%,-6%,0) scale(1.12)" },
+          "66%": { transform: "translate3d(-5%,4%,0) scale(0.95)" },
+        },
       },
       animation: {
         "fade-in": "fade-in 0.2s ease-out",
@@ -91,6 +103,7 @@ const config: Config = {
         "bounce-ball": "bounce-ball 2.6s cubic-bezier(0.5,0.05,0.5,0.95) infinite",
         shimmer: "shimmer 3s linear infinite",
         "pulse-ring": "pulse-ring 2.4s ease-out infinite",
+        aurora: "aurora 18s ease-in-out infinite",
       },
     },
   },
