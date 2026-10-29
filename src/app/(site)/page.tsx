@@ -47,7 +47,8 @@ const WHATSAPP =
 
 export default function LandingPage() {
   return (
-    <div className="min-h-screen app-bg text-white overflow-x-hidden selection:bg-aqua-400 selection:text-court-950">
+    <div className="min-h-screen page-shell text-white overflow-x-hidden selection:bg-aqua-400 selection:text-court-950">
+      <SiteBackground />
       <Header />
       <Hero />
       <StatsBar />
@@ -65,23 +66,44 @@ export default function LandingPage() {
   );
 }
 
-/** Blobs coloridos de fundo (aurora). */
-function Aurora({ className = "" }: { className?: string }) {
+/** Fundo global: aurora animada, grade e textura de grão. */
+function SiteBackground() {
+  // distribuídos verticalmente para que cada seção tenha seu próprio clima de cor
+  const blobs = [
+    { w: "48rem", h: "48rem", left: "-14rem", top: "-10rem", color: "rgba(62,233,212,.55)", delay: "0s" },
+    { w: "44rem", h: "44rem", right: "-12rem", top: "4%", color: "rgba(22,184,102,.5)", delay: "-6s" },
+    { w: "40rem", h: "40rem", left: "8%", top: "16%", color: "rgba(198,239,34,.2)", delay: "-11s" },
+    { w: "46rem", h: "46rem", right: "-10rem", top: "30%", color: "rgba(62,233,212,.34)", delay: "-3s" },
+    { w: "42rem", h: "42rem", left: "-12rem", top: "45%", color: "rgba(22,184,102,.42)", delay: "-8s" },
+    { w: "44rem", h: "44rem", right: "-8rem", top: "58%", color: "rgba(198,239,34,.16)", delay: "-14s" },
+    { w: "46rem", h: "46rem", left: "-10rem", top: "70%", color: "rgba(62,233,212,.3)", delay: "-5s" },
+    { w: "48rem", h: "48rem", right: "-14rem", bottom: "-8rem", color: "rgba(22,184,102,.45)", delay: "-9s" },
+  ];
   return (
-    <div className={`aurora ${className}`} aria-hidden="true">
-      <span
-        className="h-80 w-80"
-        style={{ left: "6%", top: "8%", background: "#3ee9d4", animationDelay: "0s" }}
-      />
-      <span
-        className="h-96 w-96"
-        style={{ right: "4%", top: "0%", background: "#16b866", animationDelay: "-6s" }}
-      />
-      <span
-        className="h-72 w-72"
-        style={{ left: "40%", bottom: "0%", background: "#c6ef22", opacity: 0.35, animationDelay: "-11s" }}
-      />
-    </div>
+    <>
+      <div className="bg-layer" aria-hidden="true">
+        <div className="bg-grid" />
+        <div className="bg-spotlight" />
+        {blobs.map((b, i) => (
+          <span
+            key={i}
+            className="bg-blob animate-aurora"
+            style={{
+              width: b.w,
+              height: b.h,
+              left: b.left,
+              right: b.right,
+              top: b.top,
+              bottom: b.bottom,
+              background: `radial-gradient(circle, ${b.color}, transparent 65%)`,
+              animationDelay: b.delay,
+            }}
+          />
+        ))}
+      </div>
+      <div className="bg-vignette" aria-hidden="true" />
+      <div className="bg-grain" aria-hidden="true" />
+    </>
   );
 }
 
@@ -129,7 +151,7 @@ function Header() {
           <div className="hidden md:flex items-center gap-3">
             <a
               href="#contato"
-              className="rounded-full bg-gradient-to-r from-ball-400 to-aqua-400 px-5 py-2.5 text-sm font-bold text-court-950 hover:brightness-105 transition shadow-lg shadow-aqua-400/30"
+              className="btn-glow rounded-full px-5 py-2.5 text-sm font-bold text-court-950"
             >
               Agendar demonstração
             </a>
@@ -175,8 +197,7 @@ function Hero() {
   const mouse = useMouseParallax(12);
 
   return (
-    <section id="top" className="relative court-gradient">
-      <Aurora />
+    <section id="top" className="relative">
       {/* Linhas da quadra em perspectiva */}
       <div className="pointer-events-none absolute inset-0 perspective">
         <div
@@ -189,20 +210,20 @@ function Hero() {
         {/* Texto */}
         <div>
           <Reveal>
-            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-1.5 text-xs font-semibold text-aqua-300">
+            <span className="inline-flex items-center gap-2 rounded-full glass px-4 py-2 text-xs font-semibold tracking-wide text-aqua-300">
               <Sparkles size={14} /> O sistema completo de gestão para clubes
             </span>
           </Reveal>
 
           <Reveal delay={80}>
-            <h1 className="mt-6 text-4xl md:text-6xl font-black leading-[1.05] tracking-tight">
+            <h1 className="font-display mt-7 text-[2.9rem] md:text-7xl font-extrabold leading-[1.02] tracking-[-0.035em] text-gradient-soft">
               Toda a gestão do seu clube{" "}
               <span className="text-gradient-ball">em um só lugar.</span>
             </h1>
           </Reveal>
 
           <Reveal delay={160}>
-            <p className="mt-6 text-lg text-court-100/90 max-w-xl">
+            <p className="mt-7 text-lg md:text-xl leading-relaxed text-court-100/75 max-w-xl">
               Reserva de quadras, alunos, turmas, mensalidades, financeiro e app para o
               aluno — tudo integrado. Chega de planilhas, caderno e grupos de WhatsApp
               bagunçados para administrar seu clube de tênis ou padel.
@@ -213,14 +234,14 @@ function Hero() {
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a
                 href="#contato"
-                className="group inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-ball-400 to-aqua-400 px-7 py-4 font-bold text-court-950 hover:brightness-105 transition-all shadow-xl shadow-aqua-400/30 hover:-translate-y-0.5"
+                className="btn-glow group inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-bold text-court-950"
               >
                 Testar grátis por 14 dias
                 <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
               </a>
               <a
                 href="#recursos"
-                className="inline-flex items-center justify-center gap-2 rounded-full glass px-7 py-4 font-semibold text-white hover:bg-white/15 transition-colors"
+                className="btn-ghost inline-flex items-center justify-center gap-2 rounded-full glass px-8 py-4 font-semibold text-white hover:bg-white/15"
               >
                 Ver recursos
               </a>
@@ -279,7 +300,7 @@ function Hero() {
                 <div className="flex items-center justify-between">
                   <div>
                     <p className="text-xs text-court-100/60">Painel do clube</p>
-                    <p className="font-black text-2xl mt-0.5">R$ 48.250</p>
+                    <p className="font-display font-extrabold text-2xl mt-0.5">R$ 48.250</p>
                     <p className="text-xs text-aqua-300 mt-0.5">faturamento do mês · +18%</p>
                   </div>
                   <span className="grid h-11 w-11 place-items-center rounded-xl bg-aqua-400/20 text-aqua-300">
@@ -340,11 +361,8 @@ function Hero() {
         </div>
       </div>
 
-      {/* Onda inferior */}
-      <div className="relative z-10">
-        <svg viewBox="0 0 1440 90" className="block w-full" preserveAspectRatio="none" aria-hidden="true">
-          <path d="M0 60 C 360 10, 1080 110, 1440 40 L1440 90 L0 90 Z" fill="#041f16" />
-        </svg>
+      <div className="relative z-10 mx-auto max-w-7xl px-4 md:px-8">
+        <div className="hairline" />
       </div>
     </section>
   );
@@ -362,9 +380,9 @@ function StatsBar() {
     <section className="relative py-12">
       <div className="mx-auto max-w-7xl px-4 md:px-8 grid grid-cols-2 lg:grid-cols-4 gap-6">
         {items.map(({ icon: Icon, to, suffix, label }, i) => (
-          <Reveal key={label} delay={i * 80} className="rounded-2xl glass p-6 text-center">
+          <Reveal key={label} delay={i * 80} className="rounded-3xl glass card-lift p-7 text-center">
             <Icon className="mx-auto text-aqua-300" size={26} />
-            <div className="mt-3 text-3xl md:text-4xl font-black">
+            <div className="font-display mt-3 text-4xl md:text-5xl font-extrabold text-gradient-ball">
               <Counter to={to} suffix={suffix} />
             </div>
             <p className="mt-1 text-sm text-court-100/70">{label}</p>
@@ -387,8 +405,8 @@ function Problem() {
     <section className="relative py-20 md:py-28">
       <div className="mx-auto max-w-6xl px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
         <Reveal>
-          <span className="text-aqua-300 font-semibold text-sm">O problema</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black leading-tight">
+          <span className="eyebrow">O problema</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl leading-[1.1]">
             Gerir o clube não deveria ser um quebra-cabeça.
           </h2>
           <p className="mt-4 text-court-100/80">
@@ -399,7 +417,7 @@ function Problem() {
         </Reveal>
         <div className="space-y-3">
           {pains.map((p, i) => (
-            <Reveal key={p} delay={i * 80} className="flex items-start gap-3 rounded-2xl glass-soft p-4">
+            <Reveal key={p} delay={i * 80} className="flex items-start gap-3 rounded-2xl glass-soft card-lift p-5">
               <span className="mt-0.5 grid h-7 w-7 shrink-0 place-items-center rounded-full bg-red-500/20 text-red-300">
                 <X size={16} />
               </span>
@@ -428,9 +446,9 @@ function Modules() {
   return (
     <section id="recursos" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <span className="text-aqua-300 font-semibold text-sm">Recursos</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black">
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <span className="eyebrow">Recursos</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl">
             Um sistema, <span className="text-gradient-ball">todos os módulos</span>
           </h2>
           <p className="mt-4 text-court-100/80">
@@ -443,7 +461,7 @@ function Modules() {
             <Reveal
               key={title}
               delay={(i % 3) * 100}
-              className="group rounded-3xl glass-soft p-7 hover:bg-white/[0.07] transition-colors"
+              className="group rounded-3xl glass-soft card-lift p-7"
             >
               <div className="grid h-12 w-12 place-items-center rounded-xl bg-gradient-to-br from-aqua-500/30 to-court-700/40 text-aqua-300 group-hover:from-ball-400 group-hover:to-aqua-400 group-hover:text-court-950 transition-colors">
                 <Icon size={22} />
@@ -480,9 +498,9 @@ function HowItWorks() {
   return (
     <section id="como-funciona" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <span className="text-aqua-300 font-semibold text-sm">Como começar</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black">
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <span className="eyebrow">Como começar</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl">
             No ar em <span className="text-gradient-ball">3 passos</span>
           </h2>
           <p className="mt-4 text-court-100/80">
@@ -493,7 +511,7 @@ function HowItWorks() {
         <div className="mt-14 grid md:grid-cols-3 gap-6">
           {steps.map(({ icon: Icon, title, text }, i) => (
             <Reveal key={title} delay={i * 120} className="relative group">
-              <div className="h-full rounded-3xl glass p-7 transition-all group-hover:-translate-y-1.5">
+              <div className="h-full rounded-3xl glass card-lift p-8">
                 <div className="grid h-14 w-14 place-items-center rounded-2xl bg-gradient-to-br from-ball-400 to-aqua-400 text-court-950 shadow-lg shadow-aqua-400/30">
                   <Icon size={26} />
                 </div>
@@ -557,8 +575,8 @@ function Showcase() {
         </Reveal>
 
         <Reveal delay={120}>
-          <span className="text-aqua-300 font-semibold text-sm">Na prática</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black leading-tight">
+          <span className="eyebrow">Na prática</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl leading-[1.1]">
             Da recepção ao financeiro, tudo conversa entre si
           </h2>
           <p className="mt-4 text-court-100/80">
@@ -578,7 +596,7 @@ function Showcase() {
           </ul>
           <a
             href="#contato"
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-ball-400 to-aqua-400 px-6 py-3.5 font-bold text-court-950 hover:brightness-105 transition shadow-lg shadow-aqua-400/30"
+            className="btn-glow mt-8 inline-flex items-center gap-2 rounded-full px-7 py-3.5 font-bold text-court-950"
           >
             Quero ver na prática <ArrowRight size={16} />
           </a>
@@ -591,14 +609,13 @@ function Showcase() {
 /* ----------------------------- RESULTS ---------------------------- */
 function Results() {
   return (
-    <section id="resultados" className="relative court-gradient py-20 md:py-28 overflow-hidden">
-      <Aurora />
+    <section id="resultados" className="relative py-24 md:py-32 overflow-hidden section-glow">
       <Parallax speed={0.3} className="pointer-events-none absolute -right-20 -top-10 z-10">
         <TennisBall size={200} className="opacity-20 animate-spin-slow" />
       </Parallax>
       <div className="relative z-10 mx-auto max-w-5xl px-4 md:px-8 text-center">
         <Reveal>
-          <h2 className="text-3xl md:text-5xl font-black leading-tight">
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft text-4xl md:text-6xl leading-[1.05]">
             Resultados que cabem no <span className="text-gradient-ball">placar</span>
           </h2>
           <p className="mt-4 text-court-100/85 max-w-2xl mx-auto">
@@ -613,8 +630,8 @@ function Results() {
             { to: 60, suffix: "%", label: "menos inadimplência" },
             { to: 100, suffix: "%", label: "operação sem planilhas" },
           ].map((s, i) => (
-            <Reveal key={s.label} delay={i * 90} className="rounded-3xl glass p-6">
-              <div className="text-4xl md:text-5xl font-black text-ball-400">
+            <Reveal key={s.label} delay={i * 90} className="rounded-3xl glass card-lift p-7">
+              <div className="font-display text-5xl md:text-6xl font-extrabold text-gradient-ball">
                 <Counter to={s.to} suffix={s.suffix} />
               </div>
               <p className="mt-2 text-sm text-court-100/80">{s.label}</p>
@@ -648,16 +665,16 @@ function Testimonials() {
   return (
     <section className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <span className="text-aqua-300 font-semibold text-sm">Depoimentos</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black">
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <span className="eyebrow">Depoimentos</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl">
             Donos de clube que trocaram a planilha pelo MatchPoint
           </h2>
         </Reveal>
 
         <div className="mt-14 grid md:grid-cols-3 gap-6">
           {quotes.map((q, i) => (
-            <Reveal key={q.name} delay={i * 110} className="rounded-3xl glass p-7">
+            <Reveal key={q.name} delay={i * 110} className="rounded-3xl glass card-lift p-8">
               <Quote className="text-aqua-300" size={28} />
               <p className="mt-4 text-court-100/90 leading-relaxed">“{q.text}”</p>
               <div className="mt-6 flex items-center gap-3">
@@ -717,9 +734,9 @@ function Offer() {
   return (
     <section id="planos" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
-        <Reveal className="text-center max-w-2xl mx-auto">
-          <span className="text-aqua-300 font-semibold text-sm">Planos</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black">Um plano para cada fase do clube</h2>
+        <Reveal className="text-center max-w-3xl mx-auto">
+          <span className="eyebrow">Planos</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl">Um plano para cada fase do clube</h2>
           <p className="mt-4 text-court-100/80">
             14 dias grátis em qualquer plano. Sem cartão para começar, sem fidelidade.
           </p>
@@ -742,10 +759,10 @@ function Offer() {
                 </span>
               )}
               {!p.highlight && <span className="text-xs font-semibold text-court-100/60">{p.tag}</span>}
-              <h3 className="mt-2 text-2xl font-black">{p.name}</h3>
+              <h3 className="font-display mt-2 text-2xl font-extrabold">{p.name}</h3>
               <div className="mt-4 flex items-end gap-1">
                 <span className="text-sm text-court-100/70">R$</span>
-                <span className="text-4xl font-black">{p.price}</span>
+                <span className="font-display text-5xl font-extrabold text-gradient-soft">{p.price}</span>
                 <span className="text-sm text-court-100/70">/mês</span>
               </div>
               <ul className="mt-6 space-y-3 flex-1">
@@ -803,8 +820,8 @@ function Faq() {
     <section id="faq" className="relative py-20 md:py-28">
       <div className="mx-auto max-w-3xl px-4 md:px-8">
         <Reveal className="text-center">
-          <span className="text-aqua-300 font-semibold text-sm">Dúvidas frequentes</span>
-          <h2 className="mt-3 text-3xl md:text-4xl font-black">Antes de entrar em quadra</h2>
+          <span className="eyebrow">Dúvidas frequentes</span>
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft mt-4 text-4xl md:text-5xl">Antes de entrar em quadra</h2>
         </Reveal>
 
         <div className="mt-10 space-y-3">
@@ -814,7 +831,7 @@ function Faq() {
               <Reveal key={f.q} delay={i * 60}>
                 <button
                   onClick={() => setOpen(isOpen ? null : i)}
-                  className="w-full text-left rounded-2xl glass-soft p-5 hover:bg-white/[0.07] transition-colors"
+                  className="w-full text-left rounded-2xl glass-soft p-5 transition-colors hover:bg-white/[0.06]"
                 >
                   <div className="flex items-center justify-between gap-4">
                     <span className="font-semibold">{f.q}</span>
@@ -851,8 +868,7 @@ function FinalCta() {
   };
 
   return (
-    <section id="contato" className="relative court-gradient py-20 md:py-28 overflow-hidden">
-      <Aurora />
+    <section id="contato" className="relative py-24 md:py-32 overflow-hidden section-glow">
       <Parallax speed={0.35} className="pointer-events-none absolute -left-16 bottom-0 z-10">
         <PadelRacket size={200} className="opacity-20" />
       </Parallax>
@@ -862,7 +878,7 @@ function FinalCta() {
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 md:px-8 grid lg:grid-cols-2 gap-12 items-center">
         <Reveal>
-          <h2 className="text-3xl md:text-5xl font-black leading-[1.1]">
+          <h2 className="font-display font-extrabold tracking-[-0.025em] text-gradient-soft text-4xl md:text-6xl leading-[1.05]">
             Pronto para gerir seu clube <span className="text-gradient-ball">no automático?</span>
           </h2>
           <p className="mt-5 text-court-100/90 text-lg">
@@ -883,7 +899,7 @@ function FinalCta() {
             href={WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-8 inline-flex items-center gap-2 rounded-full glass px-6 py-3.5 font-semibold text-white hover:bg-white/15 transition-colors"
+            className="btn-ghost mt-8 inline-flex items-center gap-2 rounded-full glass px-7 py-3.5 font-semibold text-white hover:bg-white/15"
           >
             <MessageCircle size={18} className="text-aqua-300" /> Prefiro falar no WhatsApp
           </a>
@@ -896,7 +912,7 @@ function FinalCta() {
                 <div className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-gradient-to-br from-ball-400 to-aqua-400 text-court-950">
                   <Check size={30} />
                 </div>
-                <h3 className="mt-5 text-2xl font-black">Game, set, match! 🎾</h3>
+                <h3 className="font-display mt-5 text-2xl font-extrabold">Game, set, match! 🎾</h3>
                 <p className="mt-2 text-court-100/80">
                   Recebemos seus dados. Nossa equipe vai entrar em contato para agendar
                   sua demonstração e liberar o teste grátis.
@@ -933,7 +949,7 @@ function FinalCta() {
                   </div>
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-ball-400 to-aqua-400 px-6 py-4 font-bold text-court-950 hover:brightness-105 transition shadow-lg shadow-aqua-400/30"
+                    className="btn-glow w-full inline-flex items-center justify-center gap-2 rounded-full px-6 py-4 font-bold text-court-950"
                   >
                     Quero minha demonstração <ArrowRight size={18} />
                   </button>

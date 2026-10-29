@@ -1,5 +1,19 @@
 import type { Metadata, Viewport } from "next";
+import { Sora, Inter } from "next/font/google";
 import "./globals.css";
+
+const display = Sora({
+  subsets: ["latin"],
+  weight: ["400", "600", "700", "800"],
+  variable: "--font-display",
+  display: "swap",
+});
+
+const body = Inter({
+  subsets: ["latin"],
+  variable: "--font-body",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "MatchPoint — Sistema completo de gestão para clubes de tênis e padel",
@@ -10,7 +24,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#15803d",
+  themeColor: "#041f16",
 };
 
 export default function RootLayout({
@@ -19,7 +33,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
+    <html lang="pt-BR" suppressHydrationWarning className={`${display.variable} ${body.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{
