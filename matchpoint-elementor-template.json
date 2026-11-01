@@ -5,15 +5,19 @@
   "title2": "MatchPoint Landing Page",
   "page_settings": {
     "template": "elementor_canvas",
-    "custom_css": "\n/* ================= MATCHPOINT ELEMENTOR THEME ================= */\n\n/* ---------- GLOBAL RESET & BASE ---------- */\nbody.elementor-page {\n  background-color: #03140f !important;\n  color: #ffffff;\n  font-family: 'Inter', system-ui, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  overflow-x: hidden;\n}\n\n/* ---------- TIPOGRAFIA ---------- */\n.mp-font-display {\n  font-family: 'Sora', 'Inter', system-ui, sans-serif !important;\n}\n\n.mp-text-gradient-soft {\n  background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.72));\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.mp-text-gradient-ball {\n  background: linear-gradient(100deg, #e9ff6b, #7ff5e4 55%, #3ee9d4);\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n/* ---------- FUNDO AURORA ---------- */\n.mp-bg-layer {\n  position: fixed;\n  inset: 0;\n  z-index: 0;\n  pointer-events: none;\n  overflow: hidden;\n  background-color: #03140f;\n}\n\n.mp-bg-blob {\n  position: absolute;\n  border-radius: 999px;\n  filter: blur(90px);\n  will-change: transform;\n  animation: mp-aurora 18s ease-in-out infinite;\n}\n\n.mp-bg-grid {\n  position: absolute;\n  inset: 0;\n  background-image:\n    linear-gradient(to right, rgba(255,255,255,0.055) 1px, transparent 1px),\n    linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px);\n  background-size: 72px 72px;\n  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.12) 60%, transparent 100%);\n  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.12) 60%, transparent 100%);\n}\n\n.mp-bg-spotlight {\n  position: absolute;\n  inset: -30% -10% auto -10%;\n  height: 90vh;\n  background:\n    radial-gradient(55% 65% at 50% -5%, rgba(62,233,212,0.38), transparent 70%),\n    radial-gradient(40% 55% at 78% 8%, rgba(198,239,34,0.2), transparent 70%),\n    radial-gradient(50% 50% at 12% 20%, rgba(22,184,102,0.26), transparent 70%);\n  pointer-events: none;\n}\n\n.mp-bg-vignette {\n  position: fixed;\n  inset: 0;\n  z-index: 0;\n  pointer-events: none;\n  background: linear-gradient(90deg, rgba(0,0,0,0.5), transparent 22%, transparent 78%, rgba(0,0,0,0.5));\n}\n\n.mp-bg-grain {\n  position: fixed;\n  inset: 0;\n  z-index: 0;\n  pointer-events: none;\n  opacity: 0.22;\n  mix-blend-mode: overlay;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\");\n}\n\n@keyframes mp-aurora {\n  0%, 100% { transform: translate3d(0,0,0) scale(1); }\n  33% { transform: translate3d(4%,-6%,0) scale(1.12); }\n  66% { transform: translate3d(-5%,4%,0) scale(0.95); }\n}\n\n/* ---------- LIQUID GLASS ---------- */\n.mp-glass {\n  position: relative;\n  background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.035)) !important;\n  backdrop-filter: blur(24px) saturate(180%);\n  -webkit-backdrop-filter: blur(24px) saturate(180%);\n  border: 1px solid rgba(255,255,255,0.14) !important;\n  box-shadow:\n    inset 0 1px 0 rgba(255,255,255,0.35),\n    inset 0 -1px 0 rgba(255,255,255,0.04),\n    0 28px 70px -28px rgba(0,0,0,0.65);\n}\n\n.mp-glass::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  border-radius: inherit;\n  padding: 1px;\n  background: linear-gradient(140deg, rgba(255,255,255,0.55), transparent 38%, transparent 68%, rgba(62,233,212,0.4));\n  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);\n  -webkit-mask-composite: xor;\n  mask-composite: exclude;\n  pointer-events: none;\n  opacity: 0.85;\n}\n\n.mp-glass-soft {\n  position: relative;\n  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015)) !important;\n  backdrop-filter: blur(18px) saturate(160%);\n  -webkit-backdrop-filter: blur(18px) saturate(160%);\n  border: 1px solid rgba(255,255,255,0.09) !important;\n  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);\n}\n\n/* ---------- CARDS ---------- */\n.mp-card-lift {\n  transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.3s ease;\n}\n\n.mp-card-lift:hover {\n  transform: translateY(-6px);\n  border-color: rgba(126,245,228,0.3) !important;\n  box-shadow: 0 30px 70px -30px rgba(0,0,0,0.8), 0 0 50px -20px rgba(62,233,212,0.35);\n}\n\n/* ---------- BOTOES ---------- */\n.mp-btn-glow {\n  position: relative;\n  overflow: hidden;\n  background: linear-gradient(100deg, #d8f84a, #7ff5e4 55%, #3ee9d4) !important;\n  box-shadow: 0 10px 40px -10px rgba(62,233,212,0.65), inset 0 1px 0 rgba(255,255,255,0.6);\n  color: #052e1d !important;\n  font-weight: 700;\n  border: none !important;\n  border-radius: 999px !important;\n  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;\n}\n\n.mp-btn-glow:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 16px 50px -10px rgba(62,233,212,0.8), inset 0 1px 0 rgba(255,255,255,0.6);\n}\n\n.mp-btn-glow::after {\n  content: \"\";\n  position: absolute;\n  top: 0; left: -75%;\n  width: 50%; height: 100%;\n  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);\n  transform: skewX(-20deg);\n  transition: left 0.6s ease;\n}\n\n.mp-btn-glow:hover::after {\n  left: 125%;\n}\n\n.mp-btn-ghost {\n  background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.035)) !important;\n  backdrop-filter: blur(24px) saturate(180%);\n  border: 1px solid rgba(255,255,255,0.14) !important;\n  border-radius: 999px !important;\n  color: #ffffff !important;\n  font-weight: 600;\n  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease;\n}\n\n.mp-btn-ghost:hover {\n  transform: translateY(-2px);\n  border-color: rgba(126,245,228,0.4) !important;\n  background: rgba(255,255,255,0.15) !important;\n}\n\n/* ---------- EYEBROW / PILL ---------- */\n.mp-eyebrow {\n  display: inline-flex;\n  align-items: center;\n  gap: 0.5rem;\n  padding: 0.3rem 0.85rem;\n  border-radius: 999px;\n  font-size: 0.72rem;\n  font-weight: 600;\n  letter-spacing: 0.04em;\n  color: #7ff5e4;\n  background: rgba(62,233,212,0.08);\n  border: 1px solid rgba(62,233,212,0.22);\n}\n\n/* ---------- HAIRLINE DIVIDER ---------- */\n.mp-hairline {\n  height: 1px;\n  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent);\n}\n\n/* ---------- ICON CONTAINERS ---------- */\n.mp-icon-circle-aqua {\n  display: inline-grid;\n  place-items: center;\n  width: 48px; height: 48px;\n  border-radius: 12px;\n  background: linear-gradient(135deg, rgba(62,233,212,0.3), rgba(10,79,49,0.4));\n  color: #7ff5e4;\n}\n\n.mp-icon-circle-gradient {\n  display: inline-grid;\n  place-items: center;\n  width: 56px; height: 56px;\n  border-radius: 16px;\n  background: linear-gradient(135deg, #d8f84a, #3ee9d4);\n  color: #052e1d;\n  box-shadow: 0 8px 24px -8px rgba(62,233,212,0.3);\n}\n\n.mp-icon-circle-red {\n  display: inline-grid;\n  place-items: center;\n  width: 28px; height: 28px;\n  border-radius: 50%;\n  background: rgba(239,68,68,0.2);\n  color: #fca5a5;\n}\n\n.mp-icon-circle-check {\n  display: inline-grid;\n  place-items: center;\n  width: 28px; height: 28px;\n  border-radius: 50%;\n  background: rgba(62,233,212,0.2);\n  color: #7ff5e4;\n}\n\n.mp-icon-circle-check-gradient {\n  display: inline-grid;\n  place-items: center;\n  width: 28px; height: 28px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #d8f84a, #3ee9d4);\n  color: #052e1d;\n}\n\n/* ---------- SECTION GLOW ---------- */\n.mp-section-glow {\n  position: relative;\n}\n\n.mp-section-glow::before {\n  content: \"\";\n  position: absolute;\n  inset: 0;\n  pointer-events: none;\n  background: radial-gradient(70% 60% at 50% 50%, rgba(62,233,212,0.1), transparent 70%);\n}\n\n/* ---------- COUNTER NUMBERS ---------- */\n.mp-counter-number .elementor-counter-number-wrapper {\n  font-family: 'Sora', system-ui, sans-serif !important;\n  font-weight: 800;\n  background: linear-gradient(100deg, #e9ff6b, #7ff5e4 55%, #3ee9d4);\n  -webkit-background-clip: text;\n  background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n/* ---------- PRICING HIGHLIGHT ---------- */\n.mp-plan-highlight {\n  transform: translateY(-16px);\n}\n\n.mp-plan-tag {\n  position: absolute;\n  top: -12px;\n  left: 50%;\n  transform: translateX(-50%);\n  background: linear-gradient(90deg, #d8f84a, #3ee9d4);\n  color: #052e1d;\n  font-size: 0.75rem;\n  font-weight: 700;\n  padding: 4px 16px;\n  border-radius: 999px;\n  white-space: nowrap;\n}\n\n/* ---------- FAQ ACCORDION ---------- */\n.mp-faq .elementor-accordion .elementor-accordion-item {\n  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015)) !important;\n  backdrop-filter: blur(18px) saturate(160%);\n  border: 1px solid rgba(255,255,255,0.09) !important;\n  border-radius: 16px !important;\n  margin-bottom: 12px;\n  overflow: hidden;\n}\n\n.mp-faq .elementor-accordion .elementor-tab-title {\n  color: #ffffff !important;\n  font-weight: 600;\n  padding: 20px !important;\n}\n\n.mp-faq .elementor-accordion .elementor-tab-content {\n  color: rgba(255,255,255,0.8) !important;\n  padding: 0 20px 20px !important;\n  border-top: none !important;\n}\n\n.mp-faq .elementor-accordion .elementor-accordion-icon {\n  color: #7ff5e4 !important;\n}\n\n/* ---------- FORM STYLING ---------- */\n.mp-form .elementor-field-group .elementor-field {\n  background: rgba(255,255,255,0.05) !important;\n  border: 1px solid rgba(255,255,255,0.15) !important;\n  border-radius: 12px !important;\n  color: #ffffff !important;\n  padding: 12px 16px !important;\n  font-size: 14px;\n}\n\n.mp-form .elementor-field-group .elementor-field::placeholder {\n  color: rgba(255,255,255,0.4) !important;\n}\n\n.mp-form .elementor-field-group .elementor-field:focus {\n  border-color: #3ee9d4 !important;\n  box-shadow: 0 0 0 3px rgba(62,233,212,0.3) !important;\n}\n\n.mp-form .elementor-field-label {\n  color: rgba(255,255,255,0.7) !important;\n  font-size: 12px !important;\n  font-weight: 500;\n}\n\n.mp-form .elementor-button {\n  background: linear-gradient(100deg, #d8f84a, #7ff5e4 55%, #3ee9d4) !important;\n  color: #052e1d !important;\n  font-weight: 700 !important;\n  border-radius: 999px !important;\n  padding: 16px 24px !important;\n  border: none !important;\n  box-shadow: 0 10px 40px -10px rgba(62,233,212,0.65);\n}\n\n/* ---------- STARS ---------- */\n.mp-stars {\n  color: #d8f84a;\n}\n\n/* ---------- AVATAR CIRCLES ---------- */\n.mp-avatar-row {\n  display: flex;\n}\n.mp-avatar-row span {\n  width: 32px; height: 32px;\n  border-radius: 50%;\n  border: 2px solid #052e1d;\n  margin-left: -8px;\n}\n.mp-avatar-row span:first-child { margin-left: 0; }\n\n/* ---------- TESTIMONIAL INITIAL ---------- */\n.mp-initial {\n  display: inline-grid;\n  place-items: center;\n  width: 44px; height: 44px;\n  border-radius: 50%;\n  background: linear-gradient(135deg, #d8f84a, #3ee9d4);\n  color: #052e1d;\n  font-weight: 700;\n  font-size: 18px;\n}\n\n/* ---------- FLOATING ANIMATION ---------- */\n@keyframes mp-float {\n  0%, 100% { transform: translateY(0); }\n  50% { transform: translateY(-22px); }\n}\n\n.mp-float {\n  animation: mp-float 6s ease-in-out infinite;\n}\n\n/* ---------- ALL ELEMENTOR SECTIONS RELATIVE ---------- */\n.elementor-section {\n  position: relative;\n  z-index: 1;\n}\n\n/* ---------- SMOOTH SCROLL ---------- */\nhtml {\n  scroll-behavior: smooth;\n}\n\n/* ---------- RESPONSIVE ---------- */\n@media (max-width: 767px) {\n  .mp-plan-highlight {\n    transform: none;\n  }\n}\n\n/* ---------- SELECTION ---------- */\n::selection {\n  background: #3ee9d4;\n  color: #052e1d;\n}\n"
+    "background_background": "classic",
+    "background_color": "#03140f",
+    "custom_css": "body.elementor-page, .elementor-page-layout-blank, .elementor-default { background-color: #03140f !important; }"
   },
   "content": [
     {
-      "id": "38ef84c",
+      "id": "ahhnlmp",
       "elType": "section",
       "isInner": false,
       "settings": {
         "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "#03140f",
         "padding": {
           "unit": "px",
           "top": "0",
@@ -22,13 +26,18 @@
           "left": "0",
           "isLinked": true
         },
-        "z_index": 0,
-        "css_classes": "mp-bg-wrapper",
-        "custom_css": ".mp-bg-wrapper { position: fixed !important; inset: 0; z-index: 0 !important; pointer-events: none; }"
+        "margin": {
+          "unit": "px",
+          "top": "0",
+          "right": "0",
+          "bottom": "0",
+          "left": "0",
+          "isLinked": true
+        }
       },
       "elements": [
         {
-          "id": "bda9dc1",
+          "id": "4di37sd",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -37,11 +46,11 @@
           },
           "elements": [
             {
-              "id": "3bb51a5",
+              "id": "ipq6syk",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "\n<div class=\"mp-bg-layer\">\n  <div class=\"mp-bg-grid\"></div>\n  <div class=\"mp-bg-spotlight\"></div>\n  <span class=\"mp-bg-blob\" style=\"width:48rem;height:48rem;left:-14rem;top:-10rem;background:radial-gradient(circle,rgba(62,233,212,.55),transparent 65%);animation-delay:0s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:44rem;height:44rem;right:-12rem;top:4%;background:radial-gradient(circle,rgba(22,184,102,.5),transparent 65%);animation-delay:-6s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:40rem;height:40rem;left:8%;top:16%;background:radial-gradient(circle,rgba(198,239,34,.2),transparent 65%);animation-delay:-11s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:46rem;height:46rem;right:-10rem;top:30%;background:radial-gradient(circle,rgba(62,233,212,.34),transparent 65%);animation-delay:-3s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:42rem;height:42rem;left:-12rem;top:45%;background:radial-gradient(circle,rgba(22,184,102,.42),transparent 65%);animation-delay:-8s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:44rem;height:44rem;right:-8rem;top:58%;background:radial-gradient(circle,rgba(198,239,34,.16),transparent 65%);animation-delay:-14s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:46rem;height:46rem;left:-10rem;top:70%;background:radial-gradient(circle,rgba(62,233,212,.3),transparent 65%);animation-delay:-5s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:48rem;height:48rem;right:-14rem;bottom:-8rem;background:radial-gradient(circle,rgba(22,184,102,.45),transparent 65%);animation-delay:-9s\"></span>\n</div>\n<div class=\"mp-bg-vignette\"></div>\n<div class=\"mp-bg-grain\"></div>\n"
+                "html": "<style>\n/* ================= MATCHPOINT ================= */\n@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap');\n\nbody, body.elementor-page, .elementor-page-layout-blank, .elementor-default {\n  background-color: #03140f !important;\n  color: #ffffff;\n  font-family: 'Inter', system-ui, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  overflow-x: hidden;\n  margin: 0; padding: 0;\n}\n\n.elementor-section-wrap, .elementor { background: transparent !important; }\n\n/* Force every section transparent so body bg shows through */\n.elementor-section { position: relative; z-index: 1; }\n\n/* --- TYPOGRAPHY --- */\n.mp-font-display { font-family: 'Sora', 'Inter', system-ui, sans-serif !important; }\n\n.mp-text-gradient-soft {\n  background: linear-gradient(180deg, #ffffff, rgba(255,255,255,0.72));\n  -webkit-background-clip: text; background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n.mp-text-gradient-ball {\n  background: linear-gradient(100deg, #e9ff6b, #7ff5e4 55%, #3ee9d4);\n  -webkit-background-clip: text; background-clip: text;\n  -webkit-text-fill-color: transparent;\n}\n\n/* --- AURORA BACKGROUND --- */\n.mp-bg-fixed {\n  position: fixed; inset: 0; z-index: 0;\n  pointer-events: none; overflow: hidden;\n  background-color: #03140f;\n}\n\n.mp-bg-blob {\n  position: absolute; border-radius: 999px;\n  filter: blur(90px); will-change: transform;\n  animation: mp-aurora 18s ease-in-out infinite;\n}\n\n.mp-bg-grid {\n  position: absolute; inset: 0;\n  background-image:\n    linear-gradient(to right, rgba(255,255,255,0.055) 1px, transparent 1px),\n    linear-gradient(to bottom, rgba(255,255,255,0.055) 1px, transparent 1px);\n  background-size: 72px 72px;\n  mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.12) 60%, transparent 100%);\n  -webkit-mask-image: linear-gradient(to bottom, #000 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.12) 60%, transparent 100%);\n}\n\n.mp-bg-spotlight {\n  position: absolute; inset: -30% -10% auto -10%; height: 90vh;\n  background:\n    radial-gradient(55% 65% at 50% -5%, rgba(62,233,212,0.38), transparent 70%),\n    radial-gradient(40% 55% at 78% 8%, rgba(198,239,34,0.2), transparent 70%),\n    radial-gradient(50% 50% at 12% 20%, rgba(22,184,102,0.26), transparent 70%);\n  pointer-events: none;\n}\n\n.mp-bg-vignette {\n  position: fixed; inset: 0; z-index: 0;\n  pointer-events: none;\n  background: linear-gradient(90deg, rgba(0,0,0,0.5), transparent 22%, transparent 78%, rgba(0,0,0,0.5));\n}\n\n.mp-bg-grain {\n  position: fixed; inset: 0; z-index: 0;\n  pointer-events: none; opacity: 0.22; mix-blend-mode: overlay;\n  background-image: url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E\");\n}\n\n@keyframes mp-aurora {\n  0%, 100% { transform: translate3d(0,0,0) scale(1); }\n  33% { transform: translate3d(4%,-6%,0) scale(1.12); }\n  66% { transform: translate3d(-5%,4%,0) scale(0.95); }\n}\n\n/* --- LIQUID GLASS --- */\n.mp-glass {\n  position: relative;\n  background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.035)) !important;\n  backdrop-filter: blur(24px) saturate(180%);\n  -webkit-backdrop-filter: blur(24px) saturate(180%);\n  border: 1px solid rgba(255,255,255,0.14) !important;\n  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), inset 0 -1px 0 rgba(255,255,255,0.04), 0 28px 70px -28px rgba(0,0,0,0.65);\n}\n\n.mp-glass::before {\n  content: \"\"; position: absolute; inset: 0;\n  border-radius: inherit; padding: 1px;\n  background: linear-gradient(140deg, rgba(255,255,255,0.55), transparent 38%, transparent 68%, rgba(62,233,212,0.4));\n  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);\n  -webkit-mask-composite: xor; mask-composite: exclude;\n  pointer-events: none; opacity: 0.85;\n}\n\n.mp-glass-soft {\n  position: relative;\n  background: linear-gradient(145deg, rgba(255,255,255,0.07), rgba(255,255,255,0.015)) !important;\n  backdrop-filter: blur(18px) saturate(160%);\n  -webkit-backdrop-filter: blur(18px) saturate(160%);\n  border: 1px solid rgba(255,255,255,0.09) !important;\n  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);\n}\n\n/* --- CARDS --- */\n.mp-card-lift { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s ease, border-color 0.3s ease; }\n.mp-card-lift:hover {\n  transform: translateY(-6px);\n  border-color: rgba(126,245,228,0.3) !important;\n  box-shadow: 0 30px 70px -30px rgba(0,0,0,0.8), 0 0 50px -20px rgba(62,233,212,0.35);\n}\n\n/* --- BUTTONS --- */\n.mp-btn-glow {\n  position: relative; overflow: hidden;\n  background: linear-gradient(100deg, #d8f84a, #7ff5e4 55%, #3ee9d4) !important;\n  box-shadow: 0 10px 40px -10px rgba(62,233,212,0.65), inset 0 1px 0 rgba(255,255,255,0.6);\n  color: #052e1d !important; font-weight: 700;\n  border: none !important; border-radius: 999px !important;\n  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), box-shadow 0.3s ease;\n}\n.mp-btn-glow:hover {\n  transform: translateY(-2px);\n  box-shadow: 0 16px 50px -10px rgba(62,233,212,0.8), inset 0 1px 0 rgba(255,255,255,0.6);\n}\n.mp-btn-glow::after {\n  content: \"\"; position: absolute; top: 0; left: -75%;\n  width: 50%; height: 100%;\n  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.55), transparent);\n  transform: skewX(-20deg); transition: left 0.6s ease;\n}\n.mp-btn-glow:hover::after { left: 125%; }\n\n.mp-btn-ghost {\n  background: linear-gradient(145deg, rgba(255,255,255,0.13), rgba(255,255,255,0.035)) !important;\n  backdrop-filter: blur(24px) saturate(180%);\n  border: 1px solid rgba(255,255,255,0.14) !important;\n  border-radius: 999px !important;\n  color: #ffffff !important; font-weight: 600;\n  transition: transform 0.3s cubic-bezier(0.16,1,0.3,1), background-color 0.3s ease;\n}\n.mp-btn-ghost:hover {\n  transform: translateY(-2px);\n  border-color: rgba(126,245,228,0.4) !important;\n  background: rgba(255,255,255,0.15) !important;\n}\n\n/* --- EYEBROW --- */\n.mp-eyebrow {\n  display: inline-flex; align-items: center; gap: 0.5rem;\n  padding: 0.3rem 0.85rem; border-radius: 999px;\n  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;\n  color: #7ff5e4; background: rgba(62,233,212,0.08);\n  border: 1px solid rgba(62,233,212,0.22);\n}\n\n/* --- MISC --- */\n.mp-hairline { height: 1px; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.14), transparent); }\n\n.mp-icon-circle-aqua { display: inline-grid; place-items: center; width: 48px; height: 48px; border-radius: 12px; background: linear-gradient(135deg, rgba(62,233,212,0.3), rgba(10,79,49,0.4)); color: #7ff5e4; }\n.mp-icon-circle-gradient { display: inline-grid; place-items: center; width: 56px; height: 56px; border-radius: 16px; background: linear-gradient(135deg, #d8f84a, #3ee9d4); color: #052e1d; box-shadow: 0 8px 24px -8px rgba(62,233,212,0.3); }\n.mp-icon-circle-red { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(239,68,68,0.2); color: #fca5a5; }\n.mp-icon-circle-check { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: rgba(62,233,212,0.2); color: #7ff5e4; }\n.mp-icon-circle-check-gradient { display: inline-grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg, #d8f84a, #3ee9d4); color: #052e1d; }\n\n.mp-section-glow { position: relative; }\n.mp-section-glow::before { content: \"\"; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(70% 60% at 50% 50%, rgba(62,233,212,0.1), transparent 70%); }\n\n.mp-stars { color: #d8f84a; }\n.mp-initial { display: inline-grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #d8f84a, #3ee9d4); color: #052e1d; font-weight: 700; font-size: 18px; }\n\n.mp-avatar-row { display: flex; }\n.mp-avatar-row span { width: 32px; height: 32px; border-radius: 50%; border: 2px solid #052e1d; margin-left: -8px; }\n.mp-avatar-row span:first-child { margin-left: 0; }\n\n.mp-plan-tag { position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: linear-gradient(90deg, #d8f84a, #3ee9d4); color: #052e1d; font-size: 0.75rem; font-weight: 700; padding: 4px 16px; border-radius: 999px; white-space: nowrap; }\n\n@keyframes mp-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-22px); } }\n.mp-float { animation: mp-float 6s ease-in-out infinite; }\n\ndetails[open] summary svg { transform: rotate(180deg); }\ndetails summary::-webkit-details-marker { display: none; }\ndetails summary { list-style: none; }\ndetails summary::-webkit-details-marker { display: none; }\n\nhtml { scroll-behavior: smooth; }\n::selection { background: #3ee9d4; color: #052e1d; }\n\n/* --- RESPONSIVE --- */\n@media (max-width: 1024px) { .mp-modules-grid { grid-template-columns: repeat(2, 1fr) !important; } }\n@media (max-width: 767px) {\n  .mp-modules-grid, .mp-steps-grid, .mp-testimonials-grid, .mp-plans-grid, .mp-results-grid { grid-template-columns: 1fr !important; }\n  .mp-plans-grid > div { transform: none !important; }\n  .mp-footer-grid { grid-template-columns: 1fr !important; }\n  .mp-hero-cols { flex-direction: column !important; }\n  .mp-hero-col { width: 100% !important; }\n  .mp-two-cols { flex-direction: column !important; }\n  .mp-two-col { width: 100% !important; }\n}\n@media (max-width: 767px) {\n  .mp-header-nav { display: none !important; }\n}\n</style>\n<div class=\"mp-bg-fixed\">\n  <div class=\"mp-bg-grid\"></div>\n  <div class=\"mp-bg-spotlight\"></div>\n  <span class=\"mp-bg-blob\" style=\"width:48rem;height:48rem;left:-14rem;top:-10rem;background:radial-gradient(circle,rgba(62,233,212,.55),transparent 65%);animation-delay:0s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:44rem;height:44rem;right:-12rem;top:4%;background:radial-gradient(circle,rgba(22,184,102,.5),transparent 65%);animation-delay:-6s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:40rem;height:40rem;left:8%;top:16%;background:radial-gradient(circle,rgba(198,239,34,.2),transparent 65%);animation-delay:-11s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:46rem;height:46rem;right:-10rem;top:30%;background:radial-gradient(circle,rgba(62,233,212,.34),transparent 65%);animation-delay:-3s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:42rem;height:42rem;left:-12rem;top:45%;background:radial-gradient(circle,rgba(22,184,102,.42),transparent 65%);animation-delay:-8s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:44rem;height:44rem;right:-8rem;top:58%;background:radial-gradient(circle,rgba(198,239,34,.16),transparent 65%);animation-delay:-14s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:46rem;height:46rem;left:-10rem;top:70%;background:radial-gradient(circle,rgba(62,233,212,.3),transparent 65%);animation-delay:-5s\"></span>\n  <span class=\"mp-bg-blob\" style=\"width:48rem;height:48rem;right:-14rem;bottom:-8rem;background:radial-gradient(circle,rgba(22,184,102,.45),transparent 65%);animation-delay:-9s\"></span>\n</div>\n<div class=\"mp-bg-vignette\"></div>\n<div class=\"mp-bg-grain\"></div>\n"
               }
             }
           ]
@@ -49,11 +58,13 @@
       ]
     },
     {
-      "id": "9adc994",
+      "id": "oy3pb7i",
       "elType": "section",
       "isInner": false,
       "settings": {
         "layout": "full_width",
+        "background_background": "classic",
+        "background_color": "rgba(3,20,15,0.85)",
         "padding": {
           "unit": "px",
           "top": "0",
@@ -63,12 +74,12 @@
           "isLinked": true
         },
         "z_index": 50,
-        "css_classes": "mp-header",
-        "custom_css": ".mp-header { position: sticky !important; top: 0; z-index: 50 !important; }"
+        "css_classes": "mp-header-section",
+        "_element_custom_css": "selector { position: sticky !important; top: 0; z-index: 50 !important; backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); }"
       },
       "elements": [
         {
-          "id": "79d8657",
+          "id": "bk7htwc",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -77,11 +88,11 @@
           },
           "elements": [
             {
-              "id": "3a8a633",
+              "id": "fgvgj62",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "\n<div style=\"display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:20px 32px;\">\n  <a href=\"#top\" style=\"display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:#fff;text-decoration:none;font-family:'Sora',sans-serif;\">\n    <span style=\"display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#d8f84a,#3ee9d4);color:#052e1d;\">\n      <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\"><ellipse cx=\"9.5\" cy=\"8.5\" rx=\"6.5\" ry=\"7.5\" stroke=\"currentColor\" stroke-width=\"1.6\"/><path d=\"M5 4.5 15 13M4 9h11M9.5 1.5v14\" stroke=\"currentColor\" stroke-width=\"1.1\" opacity=\"0.6\"/><path d=\"M13.8 13.8 20.5 20.5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>\n    </span>\n    Match<span style=\"color:#3ee9d4\">Point</span>\n  </a>\n  <nav style=\"display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500;\">\n    <a href=\"#recursos\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Recursos</a>\n    <a href=\"#como-funciona\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Como começar</a>\n    <a href=\"#resultados\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Resultados</a>\n    <a href=\"#planos\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Planos</a>\n    <a href=\"#faq\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">FAQ</a>\n  </nav>\n  <a href=\"#contato\" class=\"mp-btn-glow\" style=\"padding:10px 20px;border-radius:999px;font-size:14px;font-weight:700;color:#052e1d;text-decoration:none;\">Agendar demonstração</a>\n</div>\n"
+                "html": "\n<div style=\"display:flex;align-items:center;justify-content:space-between;max-width:1280px;margin:0 auto;padding:20px 32px;\">\n  <a href=\"#top\" style=\"display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:#fff;text-decoration:none;font-family:'Sora',sans-serif;\">\n    <span style=\"display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#d8f84a,#3ee9d4);color:#052e1d;\">\n      <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\"><ellipse cx=\"9.5\" cy=\"8.5\" rx=\"6.5\" ry=\"7.5\" stroke=\"currentColor\" stroke-width=\"1.6\"/><path d=\"M5 4.5 15 13M4 9h11M9.5 1.5v14\" stroke=\"currentColor\" stroke-width=\"1.1\" opacity=\"0.6\"/><path d=\"M13.8 13.8 20.5 20.5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>\n    </span>\n    Match<span style=\"color:#3ee9d4\">Point</span>\n  </a>\n  <nav class=\"mp-header-nav\" style=\"display:flex;align-items:center;gap:28px;font-size:14px;font-weight:500;\">\n    <a href=\"#recursos\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Recursos</a>\n    <a href=\"#como-funciona\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Como começar</a>\n    <a href=\"#resultados\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Resultados</a>\n    <a href=\"#planos\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">Planos</a>\n    <a href=\"#faq\" style=\"color:rgba(255,255,255,0.85);text-decoration:none;\">FAQ</a>\n  </nav>\n  <a href=\"#contato\" class=\"mp-btn-glow\" style=\"padding:10px 20px;border-radius:999px;font-size:14px;font-weight:700;color:#052e1d;text-decoration:none;\">Agendar demonstração</a>\n</div>\n"
               }
             }
           ]
@@ -89,7 +100,7 @@
       ]
     },
     {
-      "id": "3039b48",
+      "id": "u5fh4ux",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -99,12 +110,14 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "144",
-          "right": "32",
+          "right": "0",
           "bottom": "96",
-          "left": "32",
+          "left": "0",
           "isLinked": false
         },
         "padding_tablet": {
@@ -117,148 +130,29 @@
         },
         "padding_mobile": {
           "unit": "px",
-          "top": "100",
-          "right": "16",
+          "top": "80",
+          "right": "0",
           "bottom": "60",
-          "left": "16",
+          "left": "0",
           "isLinked": false
-        },
-        "structure": "20"
+        }
       },
       "elements": [
         {
-          "id": "ff088db",
+          "id": "8m451j0",
           "elType": "column",
           "isInner": false,
           "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
+            "_column_size": 100,
+            "_inline_size": 100
           },
           "elements": [
             {
-              "id": "396a951",
+              "id": "drjvwmb",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<span class=\"mp-eyebrow\">✨ O sistema completo de gestão para clubes</span>"
-              }
-            },
-            {
-              "id": "c3adfcf",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 28
-                }
-              }
-            },
-            {
-              "id": "135790f",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Toda a gestão do seu clube <span class=\"mp-text-gradient-ball\">em um só lugar.</span>",
-                "header_size": "h1",
-                "align": "left",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 64
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_line_height": {
-                  "unit": "em",
-                  "size": 1.02
-                },
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.035
-                },
-                "typography_font_size_mobile": {
-                  "unit": "px",
-                  "size": 40
-                }
-              }
-            },
-            {
-              "id": "fa94d5c",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 28
-                }
-              }
-            },
-            {
-              "id": "2603d3d",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"font-size:18px;line-height:1.7;color:rgba(255,255,255,0.75);max-width:560px;\">Reserva de quadras, alunos, turmas, mensalidades, financeiro e app para o aluno — tudo integrado. Chega de planilhas, caderno e grupos de WhatsApp bagunçados para administrar seu clube de tênis ou padel.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "ea4f4e9",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 32
-                }
-              }
-            },
-            {
-              "id": "968fbb8",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div style=\"display:flex;flex-wrap:wrap;gap:12px;\">\n  <a href=\"#contato\" class=\"mp-btn-glow\" style=\"display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:999px;font-weight:700;color:#052e1d;text-decoration:none;font-size:16px;\">\n    Testar grátis por 14 dias\n    <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n  </a>\n  <a href=\"#recursos\" class=\"mp-btn-ghost\" style=\"display:inline-flex;align-items:center;gap:8px;padding:16px 32px;font-weight:600;color:#fff;text-decoration:none;font-size:16px;\">\n    Ver recursos\n  </a>\n</div>\n"
-              }
-            },
-            {
-              "id": "0e5c784",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 32
-                }
-              }
-            },
-            {
-              "id": "3c04247",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div style=\"display:flex;align-items:center;gap:16px;font-size:14px;color:rgba(255,255,255,0.8);\">\n  <div class=\"mp-avatar-row\">\n    <span style=\"background:#d8f84a;\"></span>\n    <span style=\"background:#7ff5e4;\"></span>\n    <span style=\"background:#34e3d0;\"></span>\n    <span style=\"background:#16b866;\"></span>\n  </div>\n  <div>\n    <div class=\"mp-stars\" style=\"font-size:14px;\">★★★★★</div>\n    +120 clubes já gerenciam com o MatchPoint\n  </div>\n</div>\n"
-              }
-            }
-          ]
-        },
-        {
-          "id": "ea363da",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
-          },
-          "elements": [
-            {
-              "id": "c6fc352",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div style=\"position:relative;perspective:1200px;padding:40px 20px;\">\n  <!-- Halo -->\n  <div style=\"position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:288px;height:288px;border-radius:50%;background:rgba(62,233,212,0.2);filter:blur(48px);pointer-events:none;\"></div>\n\n  <div class=\"mp-float\" style=\"position:relative;max-width:352px;margin:0 auto;\">\n    <!-- Main card -->\n    <div class=\"mp-glass\" style=\"border-radius:24px;padding:24px;\">\n      <div style=\"display:flex;align-items:center;justify-content:space-between;\">\n        <div>\n          <p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Painel do clube</p>\n          <p style=\"font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#fff;margin-top:2px;\">R$ 48.250</p>\n          <p style=\"font-size:12px;color:#7ff5e4;margin-top:2px;\">faturamento do mês · +18%</p>\n        </div>\n        <span style=\"display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(62,233,212,0.2);color:#7ff5e4;\">\n          <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 3v18h18\"/><path d=\"m19 9-5 5-4-4-3 3\"/></svg>\n        </span>\n      </div>\n      <!-- Mini chart -->\n      <div style=\"display:flex;align-items:flex-end;gap:6px;height:80px;margin-top:20px;\">\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:40%\"></span>\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:55%\"></span>\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:48%\"></span>\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:70%\"></span>\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:62%\"></span>\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:85%\"></span>\n        <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:78%\"></span>\n      </div>\n      <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;\">\n        <div style=\"background:rgba(255,255,255,0.05);border-radius:16px;padding:12px 16px;\">\n          <p style=\"font-size:11px;color:rgba(255,255,255,0.6);\">Ocupação</p>\n          <p style=\"font-weight:700;font-size:18px;color:#fff;\">94%</p>\n        </div>\n        <div style=\"background:rgba(255,255,255,0.05);border-radius:16px;padding:12px 16px;\">\n          <p style=\"font-size:11px;color:rgba(255,255,255,0.6);\">Inadimplência</p>\n          <p style=\"font-weight:700;font-size:18px;color:#7ff5e4;\">2,1%</p>\n        </div>\n      </div>\n    </div>\n\n    <!-- Chip: Reserva -->\n    <div class=\"mp-float\" style=\"position:absolute;top:-24px;right:12px;z-index:20;animation-delay:1s;\">\n      <div class=\"mp-glass\" style=\"border-radius:16px;padding:10px 14px;display:flex;align-items:center;gap:8px;\">\n        <span style=\"display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:rgba(62,233,212,0.2);color:#7ff5e4;\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01\"/></svg>\n        </span>\n        <div>\n          <p style=\"font-size:12px;font-weight:700;color:#fff;line-height:1.2;\">Quadra 3 reservada</p>\n          <p style=\"font-size:10px;color:rgba(255,255,255,0.6);\">hoje · 18h–19h</p>\n        </div>\n      </div>\n    </div>\n\n    <!-- Chip: Pagamento -->\n    <div class=\"mp-float\" style=\"position:absolute;bottom:-24px;left:-20px;z-index:20;animation-delay:1.6s;\">\n      <div class=\"mp-glass\" style=\"border-radius:16px;padding:10px 14px;display:flex;align-items:center;gap:8px;\">\n        <span style=\"display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:rgba(216,248,74,0.2);color:#d8f84a;\">\n          <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"/><path d=\"M2 10h20\"/></svg>\n        </span>\n        <div>\n          <p style=\"font-size:12px;font-weight:700;color:#fff;line-height:1.2;\">Mensalidade paga</p>\n          <p style=\"font-size:10px;color:rgba(255,255,255,0.6);\">Ana R. · R$ 320 · Pix</p>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+                "html": "\n<div class=\"mp-hero-cols\" style=\"display:flex;gap:64px;align-items:center;max-width:1280px;margin:0 auto;padding:0 32px;\">\n  <!-- Left col -->\n  <div class=\"mp-hero-col\" style=\"flex:1;\">\n    <span class=\"mp-eyebrow\">✨ O sistema completo de gestão para clubes</span>\n    <h1 class=\"mp-font-display\" style=\"margin-top:28px;font-size:64px;font-weight:800;line-height:1.02;letter-spacing:-0.035em;\">\n      <span class=\"mp-text-gradient-soft\">Toda a gestão do seu clube </span><span class=\"mp-text-gradient-ball\">em um só lugar.</span>\n    </h1>\n    <p style=\"margin-top:28px;font-size:18px;line-height:1.7;color:rgba(255,255,255,0.75);max-width:560px;\">Reserva de quadras, alunos, turmas, mensalidades, financeiro e app para o aluno — tudo integrado. Chega de planilhas, caderno e grupos de WhatsApp bagunçados para administrar seu clube de tênis ou padel.</p>\n    <div style=\"margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;\">\n      <a href=\"#contato\" class=\"mp-btn-glow\" style=\"display:inline-flex;align-items:center;gap:8px;padding:16px 32px;border-radius:999px;font-weight:700;color:#052e1d;text-decoration:none;font-size:16px;\">\n        Testar grátis por 14 dias\n        <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n      </a>\n      <a href=\"#recursos\" class=\"mp-btn-ghost\" style=\"display:inline-flex;align-items:center;gap:8px;padding:16px 32px;font-weight:600;color:#fff;text-decoration:none;font-size:16px;\">Ver recursos</a>\n    </div>\n    <div style=\"margin-top:32px;display:flex;align-items:center;gap:16px;font-size:14px;color:rgba(255,255,255,0.8);\">\n      <div class=\"mp-avatar-row\">\n        <span style=\"background:#d8f84a;\"></span><span style=\"background:#7ff5e4;\"></span><span style=\"background:#34e3d0;\"></span><span style=\"background:#16b866;\"></span>\n      </div>\n      <div>\n        <div class=\"mp-stars\" style=\"font-size:14px;\">★★★★★</div>\n        +120 clubes já gerenciam com o MatchPoint\n      </div>\n    </div>\n  </div>\n\n  <!-- Right col: dashboard mockup -->\n  <div class=\"mp-hero-col\" style=\"flex:1;position:relative;perspective:1200px;padding:40px 20px;\">\n    <div style=\"position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:288px;height:288px;border-radius:50%;background:rgba(62,233,212,0.2);filter:blur(48px);pointer-events:none;\"></div>\n    <div class=\"mp-float\" style=\"position:relative;max-width:352px;margin:0 auto;\">\n      <div class=\"mp-glass\" style=\"border-radius:24px;padding:24px;\">\n        <div style=\"display:flex;align-items:center;justify-content:space-between;\">\n          <div>\n            <p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Painel do clube</p>\n            <p style=\"font-family:'Sora',sans-serif;font-weight:800;font-size:24px;color:#fff;margin-top:2px;\">R$ 48.250</p>\n            <p style=\"font-size:12px;color:#7ff5e4;margin-top:2px;\">faturamento do mês · +18%</p>\n          </div>\n          <span style=\"display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:rgba(62,233,212,0.2);color:#7ff5e4;\">\n            <svg width=\"22\" height=\"22\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"M3 3v18h18\"/><path d=\"m19 9-5 5-4-4-3 3\"/></svg>\n          </span>\n        </div>\n        <div style=\"display:flex;align-items:flex-end;gap:6px;height:80px;margin-top:20px;\">\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:40%\"></span>\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:55%\"></span>\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:48%\"></span>\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:70%\"></span>\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:62%\"></span>\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:85%\"></span>\n          <span style=\"flex:1;border-radius:6px;background:linear-gradient(to top,rgba(20,211,189,0.4),#d8f84a);height:78%\"></span>\n        </div>\n        <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px;\">\n          <div style=\"background:rgba(255,255,255,0.05);border-radius:16px;padding:12px 16px;\">\n            <p style=\"font-size:11px;color:rgba(255,255,255,0.6);\">Ocupação</p>\n            <p style=\"font-weight:700;font-size:18px;color:#fff;\">94%</p>\n          </div>\n          <div style=\"background:rgba(255,255,255,0.05);border-radius:16px;padding:12px 16px;\">\n            <p style=\"font-size:11px;color:rgba(255,255,255,0.6);\">Inadimplência</p>\n            <p style=\"font-weight:700;font-size:18px;color:#7ff5e4;\">2,1%</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"mp-float\" style=\"position:absolute;top:-24px;right:12px;z-index:20;animation-delay:1s;\">\n        <div class=\"mp-glass\" style=\"border-radius:16px;padding:10px 14px;display:flex;align-items:center;gap:8px;\">\n          <span style=\"display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:rgba(62,233,212,0.2);color:#7ff5e4;\">\n            <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect width=\"18\" height=\"18\" x=\"3\" y=\"4\" rx=\"2\"/><path d=\"M16 2v4M8 2v4M3 10h18M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01M16 18h.01\"/></svg>\n          </span>\n          <div>\n            <p style=\"font-size:12px;font-weight:700;color:#fff;line-height:1.2;\">Quadra 3 reservada</p>\n            <p style=\"font-size:10px;color:rgba(255,255,255,0.6);\">hoje · 18h–19h</p>\n          </div>\n        </div>\n      </div>\n      <div class=\"mp-float\" style=\"position:absolute;bottom:-24px;left:-20px;z-index:20;animation-delay:1.6s;\">\n        <div class=\"mp-glass\" style=\"border-radius:16px;padding:10px 14px;display:flex;align-items:center;gap:8px;\">\n          <span style=\"display:grid;place-items:center;width:32px;height:32px;border-radius:8px;background:rgba(216,248,74,0.2);color:#d8f84a;\">\n            <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><rect width=\"20\" height=\"14\" x=\"2\" y=\"5\" rx=\"2\"/><path d=\"M2 10h20\"/></svg>\n          </span>\n          <div>\n            <p style=\"font-size:12px;font-weight:700;color:#fff;line-height:1.2;\">Mensalidade paga</p>\n            <p style=\"font-size:10px;color:rgba(255,255,255,0.6);\">Ana R. · R$ 320 · Pix</p>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
               }
             }
           ]
@@ -266,7 +160,7 @@
       ]
     },
     {
-      "id": "9dc13da",
+      "id": "ajrrowz",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -276,6 +170,8 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "0",
@@ -303,7 +199,7 @@
       },
       "elements": [
         {
-          "id": "c2e020a",
+          "id": "x6fdu2j",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -312,7 +208,7 @@
           },
           "elements": [
             {
-              "id": "de5f79e",
+              "id": "6d621if",
               "elType": "widget",
               "widgetType": "divider",
               "settings": {
@@ -329,7 +225,7 @@
       ]
     },
     {
-      "id": "aea1bdf",
+      "id": "jzz6uio",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -339,6 +235,8 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "48",
@@ -362,264 +260,11 @@
           "bottom": "48",
           "left": "16",
           "isLinked": false
-        },
-        "structure": "40"
-      },
-      "elements": [
-        {
-          "id": "d9d88cc",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 25,
-            "_inline_size": 25
-          },
-          "elements": [
-            {
-              "id": "952c2d8",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">👥</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">120+</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">clubes usando</p>\n</div>\n"
-              }
-            }
-          ]
-        },
-        {
-          "id": "4abfdaf",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 25,
-            "_inline_size": 25
-          },
-          "elements": [
-            {
-              "id": "f180a12",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">📅</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">85mil</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">reservas por mês</p>\n</div>\n"
-              }
-            }
-          ]
-        },
-        {
-          "id": "2b17cc4",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 25,
-            "_inline_size": 25
-          },
-          "elements": [
-            {
-              "id": "d393b6f",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">⏰</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">12h</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">economizadas por semana</p>\n</div>\n"
-              }
-            }
-          ]
-        },
-        {
-          "id": "abe2e03",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 25,
-            "_inline_size": 25
-          },
-          "elements": [
-            {
-              "id": "261b1b0",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">💰</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">60%</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">menos inadimplência</p>\n</div>\n"
-              }
-            }
-          ]
         }
-      ]
-    },
-    {
-      "id": "8823109",
-      "elType": "section",
-      "isInner": false,
-      "settings": {
-        "layout": "boxed",
-        "content_width": {
-          "unit": "px",
-          "size": 1280
-        },
-        "gap": "default",
-        "padding": {
-          "unit": "px",
-          "top": "80",
-          "right": "32",
-          "bottom": "80",
-          "left": "32",
-          "isLinked": false
-        },
-        "padding_tablet": {
-          "unit": "px",
-          "top": "60",
-          "right": "16",
-          "bottom": "60",
-          "left": "16",
-          "isLinked": false
-        },
-        "padding_mobile": {
-          "unit": "px",
-          "top": "48",
-          "right": "16",
-          "bottom": "48",
-          "left": "16",
-          "isLinked": false
-        },
-        "structure": "20"
       },
       "elements": [
         {
-          "id": "40a5027",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
-          },
-          "elements": [
-            {
-              "id": "670e7ed",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "<span class=\"mp-eyebrow\">O problema</span>"
-              }
-            },
-            {
-              "id": "cae3a35",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "4955133",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Gerir o clube não deveria ser um quebra-cabeça.",
-                "header_size": "h2",
-                "align": "left",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_line_height": {
-                  "unit": "em",
-                  "size": 1.1
-                },
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "d23b385",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "dbf4841",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"color:rgba(255,255,255,0.8);font-size:16px;line-height:1.7;\">A maioria dos clubes de tênis e padel perde tempo e dinheiro com processos manuais e ferramentas desconectadas. O MatchPoint reúne tudo em um só sistema, feito para o dia a dia de quem vive o esporte.</p>",
-                "align": "left"
-              }
-            }
-          ]
-        },
-        {
-          "id": "a8a584a",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
-          },
-          "elements": [
-            {
-              "id": "15662b3",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Agenda no caderno ou no grupo do WhatsApp, com reservas duplicadas e furos.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Planilhas espalhadas para controlar alunos, turmas e pagamentos.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Mensalidades atrasadas que você só percebe quando falta dinheiro no caixa.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Nenhuma visão clara de ocupação, faturamento e desempenho do clube.</p>\n</div>\n"
-              }
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "id": "9c232f4",
-      "elType": "section",
-      "isInner": false,
-      "settings": {
-        "layout": "boxed",
-        "content_width": {
-          "unit": "px",
-          "size": 1280
-        },
-        "gap": "default",
-        "padding": {
-          "unit": "px",
-          "top": "80",
-          "right": "32",
-          "bottom": "80",
-          "left": "32",
-          "isLinked": false
-        },
-        "padding_tablet": {
-          "unit": "px",
-          "top": "60",
-          "right": "16",
-          "bottom": "60",
-          "left": "16",
-          "isLinked": false
-        },
-        "padding_mobile": {
-          "unit": "px",
-          "top": "48",
-          "right": "16",
-          "bottom": "48",
-          "left": "16",
-          "isLinked": false
-        },
-        "css_classes": "",
-        "_element_id": "recursos"
-      },
-      "elements": [
-        {
-          "id": "bfe7fae",
+          "id": "hfptnve",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -628,83 +273,11 @@
           },
           "elements": [
             {
-              "id": "7430b98",
+              "id": "bjc23jl",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Recursos</span></div>"
-              }
-            },
-            {
-              "id": "eb9f849",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "51354a7",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Um sistema, <span class=\"mp-text-gradient-ball\">todos os módulos</span>",
-                "header_size": "h2",
-                "align": "center",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "9721a80",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 8
-                }
-              }
-            },
-            {
-              "id": "9da777d",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"text-align:center;color:rgba(255,255,255,0.8);font-size:16px;max-width:720px;margin:0 auto;\">Tudo que o seu clube precisa para funcionar sem papel, sem planilha e sem dor de cabeça.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "a360bff",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 56
-                }
-              }
-            },
-            {
-              "id": "14f14d8",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "<div class=\"mp-modules-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\">\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">📅</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Reserva de quadras</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Agenda visual em tempo real e reserva online pelo aluno, sem conflitos de horário.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">🎓</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Alunos & turmas</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Cadastro completo, matrículas, presença e histórico de cada aluno e turma.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">💳</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Mensalidades & Pix</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Cobrança recorrente automática, pagamentos por Pix, cartão e boleto em um clique.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">💰</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Controle financeiro</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Fluxo de caixa, contas a pagar e receber e relatórios de faturamento do clube.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">📱</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">App para o aluno</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">O aluno reserva, paga e acompanha as aulas pelo celular, com a marca do seu clube.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">💬</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Automação de WhatsApp</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Lembretes de aula, confirmação de reserva e avisos de cobrança enviados sozinhos.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">📊</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Relatórios & dashboards</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Ocupação, inadimplência e desempenho em painéis claros para decidir com dados.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">🏆</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Torneios & eventos</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Monte chaves, inscrições e rankings de torneios e rachas do seu clube.</p>\n</div>\n\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">🔔</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Avisos e comunicação</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Comunique turmas, times e sócios por push e WhatsApp sem sair do sistema.</p>\n</div>\n</div>\n<style>\n@media (max-width: 1024px) {\n  .mp-modules-grid { grid-template-columns: repeat(2, 1fr) !important; }\n}\n@media (max-width: 640px) {\n  .mp-modules-grid { grid-template-columns: 1fr !important; }\n}\n</style>\n"
+                "html": "<div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:24px;\" class=\"mp-results-grid\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">👥</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">120+</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">clubes usando</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">📅</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">85mil</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">reservas por mês</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">⏰</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">12h</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">economizadas por semana</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div style=\"font-size:26px;color:#7ff5e4;margin-bottom:12px;\">💰</div>\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">60%</div>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">menos inadimplência</p>\n</div></div>"
               }
             }
           ]
@@ -712,7 +285,7 @@
       ]
     },
     {
-      "id": "2000293",
+      "id": "a92n266",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -722,12 +295,135 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "80",
-          "right": "32",
+          "right": "16",
           "bottom": "80",
-          "left": "32",
+          "left": "16",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "60",
+          "right": "16",
+          "bottom": "60",
+          "left": "16",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "48",
+          "right": "16",
+          "bottom": "48",
+          "left": "16",
+          "isLinked": false
+        }
+      },
+      "elements": [
+        {
+          "id": "c4njxpl",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100
+          },
+          "elements": [
+            {
+              "id": "2zgvnes",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "\n<div class=\"mp-two-cols\" style=\"display:flex;gap:64px;align-items:flex-start;max-width:1280px;margin:0 auto;\">\n  <div class=\"mp-two-col\" style=\"flex:1;\">\n    <span class=\"mp-eyebrow\">O problema</span>\n    <h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;font-size:48px;font-weight:800;line-height:1.1;letter-spacing:-0.025em;\">Gerir o clube não deveria ser um quebra-cabeça.</h2>\n    <p style=\"margin-top:16px;color:rgba(255,255,255,0.8);font-size:16px;line-height:1.7;\">A maioria dos clubes de tênis e padel perde tempo e dinheiro com processos manuais e ferramentas desconectadas. O MatchPoint reúne tudo em um só sistema, feito para o dia a dia de quem vive o esporte.</p>\n  </div>\n  <div class=\"mp-two-col\" style=\"flex:1;\">\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Agenda no caderno ou no grupo do WhatsApp, com reservas duplicadas e furos.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Planilhas espalhadas para controlar alunos, turmas e pagamentos.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Mensalidades atrasadas que você só percebe quando falta dinheiro no caixa.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"display:flex;align-items:flex-start;gap:12px;border-radius:16px;padding:20px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-red\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M18 6 6 18M6 6l12 12\"/></svg>\n  </span>\n  <p style=\"color:rgba(255,255,255,0.9);font-size:15px;line-height:1.6;\">Nenhuma visão clara de ocupação, faturamento e desempenho do clube.</p>\n</div></div>\n</div>\n"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "b86jesx",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": {
+          "unit": "px",
+          "size": 1280
+        },
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "16",
+          "bottom": "80",
+          "left": "16",
+          "isLinked": false
+        },
+        "padding_tablet": {
+          "unit": "px",
+          "top": "60",
+          "right": "16",
+          "bottom": "60",
+          "left": "16",
+          "isLinked": false
+        },
+        "padding_mobile": {
+          "unit": "px",
+          "top": "48",
+          "right": "16",
+          "bottom": "48",
+          "left": "16",
+          "isLinked": false
+        },
+        "_element_id": "recursos"
+      },
+      "elements": [
+        {
+          "id": "7dbposa",
+          "elType": "column",
+          "isInner": false,
+          "settings": {
+            "_column_size": 100,
+            "_inline_size": 100
+          },
+          "elements": [
+            {
+              "id": "kemr5r7",
+              "elType": "widget",
+              "widgetType": "html",
+              "settings": {
+                "html": "\n<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Recursos</span></div>\n<h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;text-align:center;font-size:48px;font-weight:800;letter-spacing:-0.025em;\">Um sistema, <span class=\"mp-text-gradient-ball\">todos os módulos</span></h2>\n<p style=\"margin-top:8px;text-align:center;color:rgba(255,255,255,0.8);font-size:16px;max-width:720px;margin-left:auto;margin-right:auto;\">Tudo que o seu clube precisa para funcionar sem papel, sem planilha e sem dor de cabeça.</p>\n<div style=\"margin-top:56px;\"><div class=\"mp-modules-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\">\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">📅</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Reserva de quadras</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Agenda visual em tempo real e reserva online pelo aluno, sem conflitos de horário.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">🎓</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Alunos & turmas</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Cadastro completo, matrículas, presença e histórico de cada aluno e turma.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">💳</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Mensalidades & Pix</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Cobrança recorrente automática, pagamentos por Pix, cartão e boleto em um clique.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">💰</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Controle financeiro</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Fluxo de caixa, contas a pagar e receber e relatórios de faturamento do clube.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">📱</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">App para o aluno</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">O aluno reserva, paga e acompanha as aulas pelo celular, com a marca do seu clube.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">💬</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Automação de WhatsApp</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Lembretes de aula, confirmação de reserva e avisos de cobrança enviados sozinhos.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">📊</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Relatórios & dashboards</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Ocupação, inadimplência e desempenho em painéis claros para decidir com dados.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">🏆</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Torneios & eventos</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Monte chaves, inscrições e rankings de torneios e rachas do seu clube.</p>\n</div>\n<div class=\"mp-glass-soft mp-card-lift\" style=\"border-radius:24px;padding:28px;\">\n  <div class=\"mp-icon-circle-aqua\">🔔</div>\n  <h3 style=\"margin-top:20px;font-size:18px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">Avisos e comunicação</h3>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.75);line-height:1.6;\">Comunique turmas, times e sócios por push e WhatsApp sem sair do sistema.</p>\n</div></div></div>\n"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2fxjic",
+      "elType": "section",
+      "isInner": false,
+      "settings": {
+        "layout": "boxed",
+        "content_width": {
+          "unit": "px",
+          "size": 1280
+        },
+        "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
+        "padding": {
+          "unit": "px",
+          "top": "80",
+          "right": "16",
+          "bottom": "80",
+          "left": "16",
           "isLinked": false
         },
         "padding_tablet": {
@@ -750,7 +446,7 @@
       },
       "elements": [
         {
-          "id": "04b4ba8",
+          "id": "we2t85x",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -759,83 +455,11 @@
           },
           "elements": [
             {
-              "id": "b77725c",
+              "id": "zrd5dnb",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Como começar</span></div>"
-              }
-            },
-            {
-              "id": "9f31c82",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "22e4c0e",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "No ar em <span class=\"mp-text-gradient-ball\">3 passos</span>",
-                "header_size": "h2",
-                "align": "center",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "95f5422",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 8
-                }
-              }
-            },
-            {
-              "id": "13ce5dd",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"text-align:center;color:rgba(255,255,255,0.8);font-size:16px;\">Migração sem complicação. Você joga, a gente cuida da virada de chave.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "49dc30d",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 56
-                }
-              }
-            },
-            {
-              "id": "1b14982",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "<div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\" class=\"mp-steps-grid\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;height:100%;\">\n  <div class=\"mp-icon-circle-gradient\" style=\"font-size:24px;\">✨</div>\n  <h3 style=\"margin-top:20px;font-size:20px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">1. Configuramos para você</h3>\n  <p style=\"margin-top:8px;font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;\">Importamos seus alunos, quadras e turmas. Em poucos dias o sistema está pronto com a cara do seu clube.</p>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;height:100%;\">\n  <div class=\"mp-icon-circle-gradient\" style=\"font-size:24px;\">👥</div>\n  <h3 style=\"margin-top:20px;font-size:20px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">2. Sua equipe começa a usar</h3>\n  <p style=\"margin-top:8px;font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;\">Recepção, professores e gestão trabalham no mesmo lugar. Treinamento incluído e suporte humano de verdade.</p>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;height:100%;\">\n  <div class=\"mp-icon-circle-gradient\" style=\"font-size:24px;\">📈</div>\n  <h3 style=\"margin-top:20px;font-size:20px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">3. Você acompanha tudo</h3>\n  <p style=\"margin-top:8px;font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;\">Agenda cheia, pagamentos em dia e um painel com a saúde do clube na palma da mão, de onde estiver.</p>\n</div>\n</div>\n<style>\n@media (max-width: 767px) {\n  .mp-steps-grid { grid-template-columns: 1fr !important; }\n}\n</style>\n"
+                "html": "\n<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Como começar</span></div>\n<h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;text-align:center;font-size:48px;font-weight:800;letter-spacing:-0.025em;\">No ar em <span class=\"mp-text-gradient-ball\">3 passos</span></h2>\n<p style=\"margin-top:8px;text-align:center;color:rgba(255,255,255,0.8);font-size:16px;\">Migração sem complicação. Você joga, a gente cuida da virada de chave.</p>\n<div style=\"margin-top:56px;\"><div class=\"mp-steps-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;height:100%;\">\n  <div class=\"mp-icon-circle-gradient\" style=\"font-size:24px;\">✨</div>\n  <h3 style=\"margin-top:20px;font-size:20px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">1. Configuramos para você</h3>\n  <p style=\"margin-top:8px;font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;\">Importamos seus alunos, quadras e turmas. Em poucos dias o sistema está pronto com a cara do seu clube.</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;height:100%;\">\n  <div class=\"mp-icon-circle-gradient\" style=\"font-size:24px;\">👥</div>\n  <h3 style=\"margin-top:20px;font-size:20px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">2. Sua equipe começa a usar</h3>\n  <p style=\"margin-top:8px;font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;\">Recepção, professores e gestão trabalham no mesmo lugar. Treinamento incluído e suporte humano de verdade.</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;height:100%;\">\n  <div class=\"mp-icon-circle-gradient\" style=\"font-size:24px;\">📈</div>\n  <h3 style=\"margin-top:20px;font-size:20px;font-weight:700;color:#fff;font-family:'Sora',sans-serif;\">3. Você acompanha tudo</h3>\n  <p style=\"margin-top:8px;font-size:15px;color:rgba(255,255,255,0.8);line-height:1.6;\">Agenda cheia, pagamentos em dia e um painel com a saúde do clube na palma da mão, de onde estiver.</p>\n</div></div></div>\n"
               }
             }
           ]
@@ -843,7 +467,7 @@
       ]
     },
     {
-      "id": "ebd42a1",
+      "id": "3omy705",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -853,12 +477,14 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "80",
-          "right": "32",
+          "right": "16",
           "bottom": "80",
-          "left": "32",
+          "left": "16",
           "isLinked": false
         },
         "padding_tablet": {
@@ -876,139 +502,24 @@
           "bottom": "48",
           "left": "16",
           "isLinked": false
-        },
-        "structure": "20"
+        }
       },
       "elements": [
         {
-          "id": "fe77d15",
+          "id": "nhjqh2i",
           "elType": "column",
           "isInner": false,
           "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
+            "_column_size": 100,
+            "_inline_size": 100
           },
           "elements": [
             {
-              "id": "405b4b1",
+              "id": "l3yuzr9",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "\n<div style=\"perspective:1200px;\">\n  <div class=\"mp-glass\" style=\"border-radius:32px;padding:20px;transform:rotateY(-8deg) rotateX(4deg);\">\n    <div style=\"display:flex;align-items:center;gap:6px;margin-bottom:16px;\">\n      <span style=\"width:12px;height:12px;border-radius:50%;background:rgba(248,113,113,0.7);\"></span>\n      <span style=\"width:12px;height:12px;border-radius:50%;background:rgba(216,248,74,0.7);\"></span>\n      <span style=\"width:12px;height:12px;border-radius:50%;background:rgba(62,233,212,0.7);\"></span>\n      <span style=\"margin-left:12px;font-size:12px;color:rgba(255,255,255,0.5);\">MatchPoint · Agenda</span>\n    </div>\n    <div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:10px;\">\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Quadra 1</div>\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Quadra 2</div>\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Quadra 3</div>\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Padel 1</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.8);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">8h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">8h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(34,210,127,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">8h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">9h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.8);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">9h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.6);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">9h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(34,210,127,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">10h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">10h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">11h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.6);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">11h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">11h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(34,210,127,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">11h</div>\n    </div>\n  </div>\n</div>\n"
-              }
-            }
-          ]
-        },
-        {
-          "id": "3efe207",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
-          },
-          "elements": [
-            {
-              "id": "7db51e3",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "<span class=\"mp-eyebrow\">Na prática</span>"
-              }
-            },
-            {
-              "id": "15b142a",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "6c4317d",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Da recepção ao financeiro, tudo conversa entre si",
-                "header_size": "h2",
-                "align": "left",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_line_height": {
-                  "unit": "em",
-                  "size": 1.1
-                },
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "a2e74b2",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "83ca930",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"color:rgba(255,255,255,0.8);font-size:16px;line-height:1.7;\">Uma reserva vira cobrança, que vira recibo, que entra no relatório — sem retrabalho. O MatchPoint elimina as planilhas paralelas e dá ao dono do clube o controle total da operação.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "6539cff",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 28
-                }
-              }
-            },
-            {
-              "id": "c65af41",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Agenda unificada de todas as quadras e professores</span>\n</div>\n\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Reserva e pagamento online direto pelo app do aluno</span>\n</div>\n\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Cobrança recorrente automática com baixa de inadimplência</span>\n</div>\n\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Relatórios de ocupação e faturamento em tempo real</span>\n</div>\n"
-              }
-            },
-            {
-              "id": "8b43c69",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 32
-                }
-              }
-            },
-            {
-              "id": "4e9fdc5",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<a href=\"#contato\" class=\"mp-btn-glow\" style=\"display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:700;color:#052e1d;text-decoration:none;font-size:15px;\">\n  Quero ver na prática\n  <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n</a>\n"
+                "html": "\n<div class=\"mp-two-cols\" style=\"display:flex;gap:64px;align-items:center;max-width:1280px;margin:0 auto;\">\n  <div class=\"mp-two-col\" style=\"flex:1;\">\n<div style=\"perspective:1200px;\">\n  <div class=\"mp-glass\" style=\"border-radius:32px;padding:20px;transform:rotateY(-8deg) rotateX(4deg);\">\n    <div style=\"display:flex;align-items:center;gap:6px;margin-bottom:16px;\">\n      <span style=\"width:12px;height:12px;border-radius:50%;background:rgba(248,113,113,0.7);\"></span>\n      <span style=\"width:12px;height:12px;border-radius:50%;background:rgba(216,248,74,0.7);\"></span>\n      <span style=\"width:12px;height:12px;border-radius:50%;background:rgba(62,233,212,0.7);\"></span>\n      <span style=\"margin-left:12px;font-size:12px;color:rgba(255,255,255,0.5);\">MatchPoint · Agenda</span>\n    </div>\n    <div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:8px;font-size:10px;\">\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Quadra 1</div>\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Quadra 2</div>\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Quadra 3</div>\n      <div style=\"border-radius:8px;background:rgba(255,255,255,0.05);padding:4px 8px;text-align:center;color:rgba(255,255,255,0.7);\">Padel 1</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.8);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">8h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">8h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(34,210,127,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">8h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">9h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.8);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">9h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(216,248,74,0.6);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">9h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(34,210,127,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">10h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(62,233,212,0.7);display:flex;align-items:center;justify-content:center;color:#052e1d;font-weight:600;\">10h</div>\n      <div style=\"height:40px;border-radius:8px;background:rgba(255,255,255,0.04);\"></div>\n    </div>\n  </div>\n</div>\n</div>\n  <div class=\"mp-two-col\" style=\"flex:1;\">\n    <span class=\"mp-eyebrow\">Na prática</span>\n    <h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;font-size:48px;font-weight:800;line-height:1.1;letter-spacing:-0.025em;\">Da recepção ao financeiro, tudo conversa entre si</h2>\n    <p style=\"margin-top:16px;color:rgba(255,255,255,0.8);font-size:16px;line-height:1.7;\">Uma reserva vira cobrança, que vira recibo, que entra no relatório — sem retrabalho. O MatchPoint elimina as planilhas paralelas e dá ao dono do clube o controle total da operação.</p>\n    <div style=\"margin-top:28px;\">\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Agenda unificada de todas as quadras e professores</span>\n</div>\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Reserva e pagamento online direto pelo app do aluno</span>\n</div>\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Cobrança recorrente automática com baixa de inadimplência</span>\n</div>\n<div style=\"display:flex;align-items:flex-start;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check\" style=\"flex-shrink:0;margin-top:2px;\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.9);font-size:15px;\">Relatórios de ocupação e faturamento em tempo real</span>\n</div></div>\n    <a href=\"#contato\" class=\"mp-btn-glow\" style=\"margin-top:32px;display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:999px;font-weight:700;color:#052e1d;text-decoration:none;font-size:15px;\">\n      Quero ver na prática\n      <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n    </a>\n  </div>\n</div>\n"
               }
             }
           ]
@@ -1016,7 +527,7 @@
       ]
     },
     {
-      "id": "c2f9319",
+      "id": "fwaamn9",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -1026,6 +537,8 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "96",
@@ -1050,12 +563,12 @@
           "left": "16",
           "isLinked": false
         },
-        "css_classes": "mp-section-glow",
-        "_element_id": "resultados"
+        "_element_id": "resultados",
+        "css_classes": "mp-section-glow"
       },
       "elements": [
         {
-          "id": "984409b",
+          "id": "i1vna6z",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -1064,68 +577,11 @@
           },
           "elements": [
             {
-              "id": "dc2a0fe",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Resultados que cabem no <span class=\"mp-text-gradient-ball\">placar</span>",
-                "header_size": "h2",
-                "align": "center",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 56
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_line_height": {
-                  "unit": "em",
-                  "size": 1.05
-                },
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "be5f615",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "f212993",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"text-align:center;color:rgba(255,255,255,0.85);font-size:16px;max-width:640px;margin:0 auto;\">Média dos clubes nos primeiros 90 dias usando o sistema MatchPoint.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "4c41cec",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 56
-                }
-              }
-            },
-            {
-              "id": "8d845a5",
+              "id": "uhstpza",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:24px;\" class=\"mp-results-grid\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">12h</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">economizadas/semana</p>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">94%</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">ocupação de pico</p>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">60%</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">menos inadimplência</p>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">100%</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">operação sem planilhas</p>\n</div>\n</div>\n<style>\n@media (max-width: 767px) {\n  .mp-results-grid { grid-template-columns: repeat(2, 1fr) !important; }\n}\n</style>\n"
+                "html": "\n<h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"text-align:center;font-size:56px;font-weight:800;line-height:1.05;letter-spacing:-0.025em;\">Resultados que cabem no <span class=\"mp-text-gradient-ball\">placar</span></h2>\n<p style=\"margin-top:16px;text-align:center;color:rgba(255,255,255,0.85);font-size:16px;max-width:640px;margin-left:auto;margin-right:auto;\">Média dos clubes nos primeiros 90 dias usando o sistema MatchPoint.</p>\n<div style=\"margin-top:56px;\"><div style=\"display:grid;grid-template-columns:repeat(4,1fr);gap:24px;\" class=\"mp-results-grid\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">12h</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">economizadas/semana</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">94%</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">ocupação de pico</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">60%</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">menos inadimplência</p>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:28px;text-align:center;\">\n  <div class=\"mp-text-gradient-ball\" style=\"font-family:'Sora',sans-serif;font-size:56px;font-weight:800;\">100%</div>\n  <p style=\"margin-top:8px;font-size:14px;color:rgba(255,255,255,0.8);\">operação sem planilhas</p>\n</div></div></div>\n"
               }
             }
           ]
@@ -1133,7 +589,7 @@
       ]
     },
     {
-      "id": "b3e7dfb",
+      "id": "wspen95",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -1143,12 +599,14 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "80",
-          "right": "32",
+          "right": "16",
           "bottom": "80",
-          "left": "32",
+          "left": "16",
           "isLinked": false
         },
         "padding_tablet": {
@@ -1170,7 +628,7 @@
       },
       "elements": [
         {
-          "id": "a812a80",
+          "id": "eelb3yj",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -1179,63 +637,11 @@
           },
           "elements": [
             {
-              "id": "d2eae59",
+              "id": "xibbwxp",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Depoimentos</span></div>"
-              }
-            },
-            {
-              "id": "257c398",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "7fa592c",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Donos de clube que trocaram a planilha pelo MatchPoint",
-                "header_size": "h2",
-                "align": "center",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "1b3c71a",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 56
-                }
-              }
-            },
-            {
-              "id": "7790e7c",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "<div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\" class=\"mp-testimonials-grid\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;\">\n  <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/><path d=\"M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/></svg>\n  <p style=\"margin-top:16px;color:rgba(255,255,255,0.9);line-height:1.6;font-size:15px;\">\"Larguei três planilhas e o caderno de reservas. Hoje vejo a agenda e o caixa do clube pelo celular, de qualquer lugar.\"</p>\n  <div style=\"margin-top:24px;display:flex;align-items:center;gap:12px;\">\n    <span class=\"mp-initial\">R</span>\n    <div>\n      <p style=\"font-weight:600;color:#fff;\">Rafael Menezes</p>\n      <p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Dono — Arena Set Point (Tênis)</p>\n    </div>\n  </div>\n  <div class=\"mp-stars\" style=\"margin-top:16px;font-size:15px;\">★★★★★</div>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;\">\n  <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/><path d=\"M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/></svg>\n  <p style=\"margin-top:16px;color:rgba(255,255,255,0.9);line-height:1.6;font-size:15px;\">\"A cobrança automática derrubou a inadimplência. Os alunos pagam no Pix pelo app e eu nem preciso cobrar ninguém.\"</p>\n  <div style=\"margin-top:24px;display:flex;align-items:center;gap:12px;\">\n    <span class=\"mp-initial\">C</span>\n    <div>\n      <p style=\"font-weight:600;color:#fff;\">Carla Nogueira</p>\n      <p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Sócia — Padel House Club</p>\n    </div>\n  </div>\n  <div class=\"mp-stars\" style=\"margin-top:16px;font-size:15px;\">★★★★★</div>\n</div>\n\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;\">\n  <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/><path d=\"M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/></svg>\n  <p style=\"margin-top:16px;color:rgba(255,255,255,0.9);line-height:1.6;font-size:15px;\">\"A recepção, os professores e eu trabalhamos no mesmo sistema. Acabou o retrabalho e ninguém mais se perde nos horários.\"</p>\n  <div style=\"margin-top:24px;display:flex;align-items:center;gap:12px;\">\n    <span class=\"mp-initial\">D</span>\n    <div>\n      <p style=\"font-weight:600;color:#fff;\">Diego Fontes</p>\n      <p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Gestor — Smash Padel & Tennis</p>\n    </div>\n  </div>\n  <div class=\"mp-stars\" style=\"margin-top:16px;font-size:15px;\">★★★★★</div>\n</div>\n</div>\n<style>\n@media (max-width: 767px) {\n  .mp-testimonials-grid { grid-template-columns: 1fr !important; }\n}\n</style>\n"
+                "html": "\n<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Depoimentos</span></div>\n<h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;text-align:center;font-size:48px;font-weight:800;letter-spacing:-0.025em;\">Donos de clube que trocaram a planilha pelo MatchPoint</h2>\n<div style=\"margin-top:56px;\"><div class=\"mp-testimonials-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;\">\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;\">\n  <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/><path d=\"M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/></svg>\n  <p style=\"margin-top:16px;color:rgba(255,255,255,0.9);line-height:1.6;font-size:15px;\">\"Larguei três planilhas e o caderno de reservas. Hoje vejo a agenda e o caixa do clube pelo celular, de qualquer lugar.\"</p>\n  <div style=\"margin-top:24px;display:flex;align-items:center;gap:12px;\">\n    <span class=\"mp-initial\">R</span>\n    <div><p style=\"font-weight:600;color:#fff;\">Rafael Menezes</p><p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Dono — Arena Set Point (Tênis)</p></div>\n  </div>\n  <div class=\"mp-stars\" style=\"margin-top:16px;font-size:15px;\">★★★★★</div>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;\">\n  <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/><path d=\"M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/></svg>\n  <p style=\"margin-top:16px;color:rgba(255,255,255,0.9);line-height:1.6;font-size:15px;\">\"A cobrança automática derrubou a inadimplência. Os alunos pagam no Pix pelo app e eu nem preciso cobrar ninguém.\"</p>\n  <div style=\"margin-top:24px;display:flex;align-items:center;gap:12px;\">\n    <span class=\"mp-initial\">C</span>\n    <div><p style=\"font-weight:600;color:#fff;\">Carla Nogueira</p><p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Sócia — Padel House Club</p></div>\n  </div>\n  <div class=\"mp-stars\" style=\"margin-top:16px;font-size:15px;\">★★★★★</div>\n</div>\n<div class=\"mp-glass mp-card-lift\" style=\"border-radius:24px;padding:32px;\">\n  <svg width=\"28\" height=\"28\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/><path d=\"M15 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V21z\"/></svg>\n  <p style=\"margin-top:16px;color:rgba(255,255,255,0.9);line-height:1.6;font-size:15px;\">\"A recepção, os professores e eu trabalhamos no mesmo sistema. Acabou o retrabalho e ninguém mais se perde nos horários.\"</p>\n  <div style=\"margin-top:24px;display:flex;align-items:center;gap:12px;\">\n    <span class=\"mp-initial\">D</span>\n    <div><p style=\"font-weight:600;color:#fff;\">Diego Fontes</p><p style=\"font-size:12px;color:rgba(255,255,255,0.6);\">Gestor — Smash Padel & Tennis</p></div>\n  </div>\n  <div class=\"mp-stars\" style=\"margin-top:16px;font-size:15px;\">★★★★★</div>\n</div></div></div>\n"
               }
             }
           ]
@@ -1243,7 +649,7 @@
       ]
     },
     {
-      "id": "7cb7349",
+      "id": "4d8jbyq",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -1253,12 +659,14 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "80",
-          "right": "32",
+          "right": "16",
           "bottom": "80",
-          "left": "32",
+          "left": "16",
           "isLinked": false
         },
         "padding_tablet": {
@@ -1281,7 +689,7 @@
       },
       "elements": [
         {
-          "id": "bb1a281",
+          "id": "dm9k1qk",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -1290,83 +698,11 @@
           },
           "elements": [
             {
-              "id": "5689c5d",
+              "id": "yqojhxn",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Planos</span></div>"
-              }
-            },
-            {
-              "id": "a1469c6",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "584c83d",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Um plano para cada fase do clube",
-                "header_size": "h2",
-                "align": "center",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "c7fb2b4",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 8
-                }
-              }
-            },
-            {
-              "id": "44d1f0e",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"text-align:center;color:rgba(255,255,255,0.8);font-size:16px;\">14 dias grátis em qualquer plano. Sem cartão para começar, sem fidelidade.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "03988f1",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 56
-                }
-              }
-            },
-            {
-              "id": "780479c",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "<div style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;\" class=\"mp-plans-grid\">\n<div class=\"mp-glass-soft\" style=\"position:relative;border-radius:24px;padding:28px;display:flex;flex-direction:column;\">\n  <span style=\"font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);\">Clubes pequenos</span>\n  <h3 style=\"margin-top:8px;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#fff;\">Saque</h3>\n  <div style=\"margin-top:16px;display:flex;align-items:flex-end;gap:4px;\">\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">R$</span>\n    <span class=\"mp-text-gradient-soft\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">197</span>\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">/mês</span>\n  </div>\n  <ul style=\"margin-top:24px;list-style:none;padding:0;flex:1;\">\n    \n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Até 2 quadras\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Reserva e agenda online\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Gestão de alunos e turmas\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Mensalidades no Pix\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Suporte por WhatsApp\n</li>\n\n  </ul>\n  <a href=\"#contato\" style=\"margin-top:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:15px;background:linear-gradient(145deg,rgba(255,255,255,0.13),rgba(255,255,255,0.035));backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.14);color:#fff;\">\n    Testar grátis\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n  </a>\n</div>\n\n<div class=\"mp-glass\" style=\"position:relative;border-radius:24px;padding:28px;display:flex;flex-direction:column;transform:translateY(-16px);box-shadow:0 28px 70px -28px rgba(0,0,0,0.65),0 0 50px -20px rgba(62,233,212,0.35);\">\n  <span class=\"mp-plan-tag\">Mais escolhido</span>\n  <h3 style=\"margin-top:8px;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#fff;\">Smash</h3>\n  <div style=\"margin-top:16px;display:flex;align-items:flex-end;gap:4px;\">\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">R$</span>\n    <span class=\"mp-text-gradient-soft\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">397</span>\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">/mês</span>\n  </div>\n  <ul style=\"margin-top:24px;list-style:none;padding:0;flex:1;\">\n    \n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Tudo do plano Saque\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Quadras ilimitadas\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  App com a marca do clube\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Automação de WhatsApp\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Controle financeiro completo\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Relatórios e dashboards\n</li>\n\n  </ul>\n  <a href=\"#contato\" style=\"margin-top:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:15px;background:linear-gradient(90deg,#d8f84a,#3ee9d4);color:#052e1d;box-shadow:0 8px 24px -8px rgba(62,233,212,0.3);\">\n    Testar grátis\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n  </a>\n</div>\n\n<div class=\"mp-glass-soft\" style=\"position:relative;border-radius:24px;padding:28px;display:flex;flex-direction:column;\">\n  <span style=\"font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);\">Rede & alto volume</span>\n  <h3 style=\"margin-top:8px;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#fff;\">Grand Slam</h3>\n  <div style=\"margin-top:16px;display:flex;align-items:flex-end;gap:4px;\">\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">R$</span>\n    <span class=\"mp-text-gradient-soft\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">697</span>\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">/mês</span>\n  </div>\n  <ul style=\"margin-top:24px;list-style:none;padding:0;flex:1;\">\n    \n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Tudo do plano Smash\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Múltiplas unidades\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Torneios e rankings\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Gestor de contas dedicado\n</li>\n\n<li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\">\n  <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  Integrações e API\n</li>\n\n  </ul>\n  <a href=\"#contato\" style=\"margin-top:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:15px;background:linear-gradient(145deg,rgba(255,255,255,0.13),rgba(255,255,255,0.035));backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.14);color:#fff;\">\n    Testar grátis\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n  </a>\n</div>\n</div>\n<style>\n@media (max-width: 767px) {\n  .mp-plans-grid { grid-template-columns: 1fr !important; }\n  .mp-plans-grid > div { transform: none !important; }\n}\n</style>\n"
+                "html": "\n<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Planos</span></div>\n<h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;text-align:center;font-size:48px;font-weight:800;letter-spacing:-0.025em;\">Um plano para cada fase do clube</h2>\n<p style=\"margin-top:8px;text-align:center;color:rgba(255,255,255,0.8);font-size:16px;\">14 dias grátis em qualquer plano. Sem cartão para começar, sem fidelidade.</p>\n<div style=\"margin-top:56px;\"><div class=\"mp-plans-grid\" style=\"display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch;\">\n<div class=\"mp-glass-soft\" style=\"position:relative;border-radius:24px;padding:28px;display:flex;flex-direction:column;\">\n  <span style=\"font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);\">Clubes pequenos</span>\n  <h3 style=\"margin-top:8px;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#fff;\">Saque</h3>\n  <div style=\"margin-top:16px;display:flex;align-items:flex-end;gap:4px;\">\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">R$</span>\n    <span class=\"mp-text-gradient-soft\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">197</span>\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">/mês</span>\n  </div>\n  <ul style=\"margin-top:24px;list-style:none;padding:0;flex:1;\"><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Até 2 quadras</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Reserva e agenda online</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Gestão de alunos e turmas</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Mensalidades no Pix</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Suporte por WhatsApp</li></ul>\n  <a href=\"#contato\" style=\"margin-top:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:15px;background:linear-gradient(145deg,rgba(255,255,255,0.13),rgba(255,255,255,0.035));backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.14);color:#fff;\">Testar grátis<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>\n</div>\n<div class=\"mp-glass\" style=\"position:relative;border-radius:24px;padding:28px;display:flex;flex-direction:column;transform:translateY(-16px);box-shadow:0 28px 70px -28px rgba(0,0,0,0.65),0 0 50px -20px rgba(62,233,212,0.35);\">\n  <span class=\"mp-plan-tag\">Mais escolhido</span>\n  <h3 style=\"margin-top:8px;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#fff;\">Smash</h3>\n  <div style=\"margin-top:16px;display:flex;align-items:flex-end;gap:4px;\">\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">R$</span>\n    <span class=\"mp-text-gradient-soft\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">397</span>\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">/mês</span>\n  </div>\n  <ul style=\"margin-top:24px;list-style:none;padding:0;flex:1;\"><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Tudo do plano Saque</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Quadras ilimitadas</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>App com a marca do clube</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Automação de WhatsApp</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Controle financeiro completo</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Relatórios e dashboards</li></ul>\n  <a href=\"#contato\" style=\"margin-top:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:15px;background:linear-gradient(90deg,#d8f84a,#3ee9d4);color:#052e1d;box-shadow:0 8px 24px -8px rgba(62,233,212,0.3);\">Testar grátis<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>\n</div>\n<div class=\"mp-glass-soft\" style=\"position:relative;border-radius:24px;padding:28px;display:flex;flex-direction:column;\">\n  <span style=\"font-size:12px;font-weight:600;color:rgba(255,255,255,0.6);\">Rede & alto volume</span>\n  <h3 style=\"margin-top:8px;font-family:'Sora',sans-serif;font-size:24px;font-weight:800;color:#fff;\">Grand Slam</h3>\n  <div style=\"margin-top:16px;display:flex;align-items:flex-end;gap:4px;\">\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">R$</span>\n    <span class=\"mp-text-gradient-soft\" style=\"font-family:'Sora',sans-serif;font-size:48px;font-weight:800;\">697</span>\n    <span style=\"font-size:14px;color:rgba(255,255,255,0.7);\">/mês</span>\n  </div>\n  <ul style=\"margin-top:24px;list-style:none;padding:0;flex:1;\"><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Tudo do plano Smash</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Múltiplas unidades</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Torneios e rankings</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Gestor de contas dedicado</li><li style=\"display:flex;align-items:flex-start;gap:8px;font-size:14px;color:rgba(255,255,255,0.9);margin-bottom:12px;\"><svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;margin-top:2px;\"><path d=\"M20 6 9 17l-5-5\"/></svg>Integrações e API</li></ul>\n  <a href=\"#contato\" style=\"margin-top:28px;display:inline-flex;align-items:center;justify-content:center;gap:8px;border-radius:999px;padding:14px 24px;font-weight:700;text-decoration:none;font-size:15px;background:linear-gradient(145deg,rgba(255,255,255,0.13),rgba(255,255,255,0.035));backdrop-filter:blur(24px);border:1px solid rgba(255,255,255,0.14);color:#fff;\">Testar grátis<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>\n</div></div></div>\n"
               }
             }
           ]
@@ -1374,22 +710,24 @@
       ]
     },
     {
-      "id": "6082c33",
+      "id": "9kvn68s",
       "elType": "section",
       "isInner": false,
       "settings": {
         "layout": "boxed",
         "content_width": {
           "unit": "px",
-          "size": 768
+          "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "80",
-          "right": "32",
+          "right": "16",
           "bottom": "80",
-          "left": "32",
+          "left": "16",
           "isLinked": false
         },
         "padding_tablet": {
@@ -1412,7 +750,7 @@
       },
       "elements": [
         {
-          "id": "e6ae737",
+          "id": "woihm7h",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -1421,63 +759,11 @@
           },
           "elements": [
             {
-              "id": "9313091",
+              "id": "x5yef73",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "<div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Dúvidas frequentes</span></div>"
-              }
-            },
-            {
-              "id": "152a693",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 16
-                }
-              }
-            },
-            {
-              "id": "631b9bc",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Antes de entrar em quadra",
-                "header_size": "h2",
-                "align": "center",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 48
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                }
-              }
-            },
-            {
-              "id": "d5c5302",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 40
-                }
-              }
-            },
-            {
-              "id": "0af14cb",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" open>\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;\">\n    Serve para clube de tênis e também de padel?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">Sim. O MatchPoint gerencia quadras de tênis, padel, beach tennis ou clubes com várias modalidades ao mesmo tempo.</div>\n</details>\n\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;\">\n    Preciso instalar algo? Funciona no celular?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">É 100% na nuvem. A gestão funciona no navegador do computador e do celular, e seus alunos usam o app para reservar e pagar.</div>\n</details>\n\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;\">\n    Vocês ajudam a migrar meus dados?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">Sim. Importamos sua base de alunos, quadras e turmas e configuramos o sistema com a cara do seu clube. Treinamento incluído.</div>\n</details>\n\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;\">\n    Como funcionam as mensalidades e pagamentos?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">O sistema gera cobrança recorrente automática e aceita Pix, cartão e boleto. O aluno paga pelo app e a baixa é automática no financeiro.</div>\n</details>\n\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;\">\n    Tem fidelidade? Posso cancelar?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">Sem fidelidade. Você testa grátis por 14 dias e segue no plano mensal enquanto fizer sentido — cancela quando quiser.</div>\n</details>\n\n<style>\ndetails[open] summary svg { transform: rotate(180deg); }\ndetails summary::-webkit-details-marker { display: none; }\n</style>\n"
+                "html": "\n<div style=\"max-width:768px;margin:0 auto;\">\n  <div style=\"text-align:center;\"><span class=\"mp-eyebrow\">Dúvidas frequentes</span></div>\n  <h2 class=\"mp-font-display mp-text-gradient-soft\" style=\"margin-top:16px;text-align:center;font-size:48px;font-weight:800;letter-spacing:-0.025em;\">Antes de entrar em quadra</h2>\n  <div style=\"margin-top:40px;\">\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" open>\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;\">\n    Serve para clube de tênis e também de padel?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">Sim. O MatchPoint gerencia quadras de tênis, padel, beach tennis ou clubes com várias modalidades ao mesmo tempo.</div>\n</details>\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;\">\n    Preciso instalar algo? Funciona no celular?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">É 100% na nuvem. A gestão funciona no navegador do computador e do celular, e seus alunos usam o app para reservar e pagar.</div>\n</details>\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;\">\n    Vocês ajudam a migrar meus dados?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">Sim. Importamos sua base de alunos, quadras e turmas e configuramos o sistema com a cara do seu clube. Treinamento incluído.</div>\n</details>\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;\">\n    Como funcionam as mensalidades e pagamentos?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">O sistema gera cobrança recorrente automática e aceita Pix, cartão e boleto. O aluno paga pelo app e a baixa é automática no financeiro.</div>\n</details>\n<details class=\"mp-glass-soft\" style=\"border-radius:16px;margin-bottom:12px;overflow:hidden;\" >\n  <summary style=\"padding:20px;font-weight:600;color:#fff;cursor:pointer;display:flex;align-items:center;justify-content:space-between;\">\n    Tem fidelidade? Posso cancelar?\n    <svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\" stroke-linecap=\"round\" style=\"flex-shrink:0;transition:transform 0.3s;\"><path d=\"m6 9 6 6 6-6\"/></svg>\n  </summary>\n  <div style=\"padding:0 20px 20px;color:rgba(255,255,255,0.8);font-size:15px;line-height:1.6;\">Sem fidelidade. Você testa grátis por 14 dias e segue no plano mensal enquanto fizer sentido — cancela quando quiser.</div>\n</details></div>\n</div>\n"
               }
             }
           ]
@@ -1485,7 +771,7 @@
       ]
     },
     {
-      "id": "d996ebc",
+      "id": "jah5227",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -1495,6 +781,8 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "96",
@@ -1519,125 +807,25 @@
           "left": "16",
           "isLinked": false
         },
-        "css_classes": "mp-section-glow",
         "_element_id": "contato",
-        "structure": "20"
+        "css_classes": "mp-section-glow"
       },
       "elements": [
         {
-          "id": "bc48275",
+          "id": "ax2j3oz",
           "elType": "column",
           "isInner": false,
           "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
+            "_column_size": 100,
+            "_inline_size": 100
           },
           "elements": [
             {
-              "id": "eb3cce9",
-              "elType": "widget",
-              "widgetType": "heading",
-              "settings": {
-                "title": "Pronto para gerir seu clube <span class=\"mp-text-gradient-ball\">no automático?</span>",
-                "header_size": "h2",
-                "align": "left",
-                "css_classes": "mp-font-display mp-text-gradient-soft",
-                "typography_typography": "custom",
-                "typography_font_size": {
-                  "unit": "px",
-                  "size": 56
-                },
-                "typography_font_family": "Sora",
-                "typography_font_weight": "800",
-                "typography_line_height": {
-                  "unit": "em",
-                  "size": 1.05
-                },
-                "typography_letter_spacing": {
-                  "unit": "em",
-                  "size": -0.025
-                },
-                "typography_font_size_mobile": {
-                  "unit": "px",
-                  "size": 36
-                }
-              }
-            },
-            {
-              "id": "1a0e1f8",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 20
-                }
-              }
-            },
-            {
-              "id": "2659357",
-              "elType": "widget",
-              "widgetType": "text-editor",
-              "settings": {
-                "editor": "<p style=\"color:rgba(255,255,255,0.9);font-size:18px;line-height:1.7;\">Agende uma demonstração gratuita. Em 20 minutos mostramos o MatchPoint funcionando com a realidade do seu clube — e você já sai testando.</p>",
-                "align": "left"
-              }
-            },
-            {
-              "id": "cf1e67b",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 32
-                }
-              }
-            },
-            {
-              "id": "7a93429",
+              "id": "c5mlnsc",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "\n<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check-gradient\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.95);font-size:15px;\">14 dias grátis, sem cartão</span>\n</div>\n\n<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check-gradient\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.95);font-size:15px;\">Migração e treinamento inclusos</span>\n</div>\n\n<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check-gradient\">\n    <svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg>\n  </span>\n  <span style=\"color:rgba(255,255,255,0.95);font-size:15px;\">Suporte humano de verdade</span>\n</div>\n"
-              }
-            },
-            {
-              "id": "0ebedd5",
-              "elType": "widget",
-              "widgetType": "spacer",
-              "settings": {
-                "space": {
-                  "unit": "px",
-                  "size": 32
-                }
-              }
-            },
-            {
-              "id": "d0be6a0",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<a href=\"https://wa.me/5500000000000?text=Quero%20conhecer%20o%20sistema%20de%20gestão%20MatchPoint\" target=\"_blank\" class=\"mp-btn-ghost\" style=\"display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-weight:600;color:#fff;text-decoration:none;font-size:15px;\">\n  💬 Prefiro falar no WhatsApp\n</a>\n"
-              }
-            }
-          ]
-        },
-        {
-          "id": "6824dbe",
-          "elType": "column",
-          "isInner": false,
-          "settings": {
-            "_column_size": 50,
-            "_inline_size": 50
-          },
-          "elements": [
-            {
-              "id": "111c188",
-              "elType": "widget",
-              "widgetType": "html",
-              "settings": {
-                "html": "\n<div class=\"mp-glass\" style=\"border-radius:24px;padding:28px 32px;\">\n  <h3 style=\"font-size:20px;font-weight:700;color:#fff;\">Agende sua demonstração gratuita</h3>\n  <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">Preencha e liberamos seu acesso de teste por 14 dias.</p>\n\n  <!-- ELEMENTOR FORM PLACEHOLDER — Substitua por um widget Form do Elementor Pro -->\n  <form style=\"margin-top:24px;\" class=\"mp-form-native\">\n    <div style=\"margin-bottom:16px;\">\n      <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Seu nome</label>\n      <input type=\"text\" placeholder=\"Nome completo\" required style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n    </div>\n    <div style=\"margin-bottom:16px;\">\n      <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">WhatsApp</label>\n      <input type=\"tel\" placeholder=\"(00) 00000-0000\" required style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n    </div>\n    <div style=\"margin-bottom:16px;\">\n      <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Nome do clube</label>\n      <input type=\"text\" placeholder=\"Ex.: Arena Set Point\" required style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n    </div>\n    <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;\">\n      <div>\n        <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Cidade</label>\n        <input type=\"text\" placeholder=\"Cidade/UF\" required style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n      </div>\n      <div>\n        <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Modalidade</label>\n        <select style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\">\n          <option style=\"color:#052e1d;\">Tênis</option>\n          <option style=\"color:#052e1d;\">Padel</option>\n          <option style=\"color:#052e1d;\">Tênis e Padel</option>\n          <option style=\"color:#052e1d;\">Beach Tennis</option>\n        </select>\n      </div>\n    </div>\n    <button type=\"submit\" class=\"mp-btn-glow\" style=\"width:100%;padding:16px 24px;border-radius:999px;font-weight:700;color:#052e1d;font-size:16px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;\">\n      Quero minha demonstração\n      <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n    </button>\n    <p style=\"text-align:center;margin-top:12px;font-size:12px;color:rgba(255,255,255,0.5);\">Seus dados estão seguros. Sem spam, prometido.</p>\n  </form>\n</div>\n"
+                "html": "\n<div class=\"mp-two-cols\" style=\"display:flex;gap:64px;align-items:flex-start;max-width:1280px;margin:0 auto;\">\n  <div class=\"mp-two-col\" style=\"flex:1;\">\n    <h2 class=\"mp-font-display\" style=\"font-size:56px;font-weight:800;line-height:1.05;letter-spacing:-0.025em;\">\n      <span class=\"mp-text-gradient-soft\">Pronto para gerir seu clube </span><span class=\"mp-text-gradient-ball\">no automático?</span>\n    </h2>\n    <p style=\"margin-top:20px;color:rgba(255,255,255,0.9);font-size:18px;line-height:1.7;\">Agende uma demonstração gratuita. Em 20 minutos mostramos o MatchPoint funcionando com a realidade do seu clube — e você já sai testando.</p>\n    <div style=\"margin-top:32px;\">\n<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check-gradient\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.95);font-size:15px;\">14 dias grátis, sem cartão</span>\n</div>\n<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check-gradient\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.95);font-size:15px;\">Migração e treinamento inclusos</span>\n</div>\n<div style=\"display:flex;align-items:center;gap:12px;margin-bottom:12px;\">\n  <span class=\"mp-icon-circle-check-gradient\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M20 6 9 17l-5-5\"/></svg></span>\n  <span style=\"color:rgba(255,255,255,0.95);font-size:15px;\">Suporte humano de verdade</span>\n</div></div>\n    <a href=\"https://wa.me/5500000000000?text=Quero%20conhecer%20o%20sistema%20de%20gestão%20MatchPoint\" target=\"_blank\" class=\"mp-btn-ghost\" style=\"margin-top:32px;display:inline-flex;align-items:center;gap:8px;padding:14px 28px;font-weight:600;color:#fff;text-decoration:none;font-size:15px;\">💬 Prefiro falar no WhatsApp</a>\n  </div>\n  <div class=\"mp-two-col\" style=\"flex:1;\">\n    <div class=\"mp-glass\" style=\"border-radius:24px;padding:28px 32px;\">\n      <h3 style=\"font-size:20px;font-weight:700;color:#fff;\">Agende sua demonstração gratuita</h3>\n      <p style=\"margin-top:4px;font-size:14px;color:rgba(255,255,255,0.7);\">Preencha e liberamos seu acesso de teste por 14 dias.</p>\n      <form style=\"margin-top:24px;\">\n        <div style=\"margin-bottom:16px;\">\n          <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Seu nome</label>\n          <input type=\"text\" placeholder=\"Nome completo\" style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n        </div>\n        <div style=\"margin-bottom:16px;\">\n          <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">WhatsApp</label>\n          <input type=\"tel\" placeholder=\"(00) 00000-0000\" style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n        </div>\n        <div style=\"margin-bottom:16px;\">\n          <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Nome do clube</label>\n          <input type=\"text\" placeholder=\"Ex.: Arena Set Point\" style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n        </div>\n        <div style=\"display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;\">\n          <div>\n            <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Cidade</label>\n            <input type=\"text\" placeholder=\"Cidade/UF\" style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\" />\n          </div>\n          <div>\n            <label style=\"font-size:12px;font-weight:500;color:rgba(255,255,255,0.7);display:block;margin-bottom:4px;\">Modalidade</label>\n            <select style=\"width:100%;padding:12px 16px;border-radius:12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);color:#fff;font-size:14px;outline:none;\">\n              <option style=\"color:#052e1d;\">Tênis</option>\n              <option style=\"color:#052e1d;\">Padel</option>\n              <option style=\"color:#052e1d;\">Tênis e Padel</option>\n              <option style=\"color:#052e1d;\">Beach Tennis</option>\n            </select>\n          </div>\n        </div>\n        <button type=\"submit\" class=\"mp-btn-glow\" style=\"width:100%;padding:16px 24px;border-radius:999px;font-weight:700;color:#052e1d;font-size:16px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;\">\n          Quero minha demonstração\n          <svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg>\n        </button>\n        <p style=\"text-align:center;margin-top:12px;font-size:12px;color:rgba(255,255,255,0.5);\">Seus dados estão seguros. Sem spam, prometido.</p>\n      </form>\n    </div>\n  </div>\n</div>\n"
               }
             }
           ]
@@ -1645,7 +833,7 @@
       ]
     },
     {
-      "id": "df69060",
+      "id": "ps3qx8d",
       "elType": "section",
       "isInner": false,
       "settings": {
@@ -1655,6 +843,8 @@
           "size": 1280
         },
         "gap": "default",
+        "background_background": "classic",
+        "background_color": "transparent",
         "padding": {
           "unit": "px",
           "top": "0",
@@ -1682,7 +872,7 @@
       },
       "elements": [
         {
-          "id": "3b2fd86",
+          "id": "kjk7373",
           "elType": "column",
           "isInner": false,
           "settings": {
@@ -1691,11 +881,11 @@
           },
           "elements": [
             {
-              "id": "613fa7a",
+              "id": "k9qo1ps",
               "elType": "widget",
               "widgetType": "html",
               "settings": {
-                "html": "\n<div style=\"border-top:1px solid rgba(255,255,255,0.1);padding:48px 0;\">\n  <div style=\"display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;max-width:1280px;margin:0 auto;padding:0 32px;\" class=\"mp-footer-grid\">\n    <!-- Logo + desc -->\n    <div>\n      <a href=\"#top\" style=\"display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:#fff;text-decoration:none;font-family:'Sora',sans-serif;\">\n        <span style=\"display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#d8f84a,#3ee9d4);color:#052e1d;\">\n          <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\"><ellipse cx=\"9.5\" cy=\"8.5\" rx=\"6.5\" ry=\"7.5\" stroke=\"currentColor\" stroke-width=\"1.6\"/><path d=\"M5 4.5 15 13M4 9h11M9.5 1.5v14\" stroke=\"currentColor\" stroke-width=\"1.1\" opacity=\"0.6\"/><path d=\"M13.8 13.8 20.5 20.5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>\n        </span>\n        Match<span style=\"color:#3ee9d4\">Point</span>\n      </a>\n      <p style=\"margin-top:16px;font-size:14px;color:rgba(255,255,255,0.6);max-width:280px;line-height:1.6;\">O sistema completo de gestão para clubes de tênis e padel. Agenda, alunos, pagamentos e financeiro em um só lugar.</p>\n    </div>\n\n    <!-- Produto -->\n    <div>\n      <p style=\"font-weight:600;font-size:14px;color:#fff;\">Produto</p>\n      <ul style=\"margin-top:16px;list-style:none;padding:0;font-size:14px;color:rgba(255,255,255,0.7);\">\n        <li style=\"margin-bottom:8px;\"><a href=\"#recursos\" style=\"color:inherit;text-decoration:none;\">Recursos</a></li>\n        <li style=\"margin-bottom:8px;\"><a href=\"#como-funciona\" style=\"color:inherit;text-decoration:none;\">Como começar</a></li>\n        <li style=\"margin-bottom:8px;\"><a href=\"#resultados\" style=\"color:inherit;text-decoration:none;\">Resultados</a></li>\n        <li style=\"margin-bottom:8px;\"><a href=\"#planos\" style=\"color:inherit;text-decoration:none;\">Planos</a></li>\n        <li><a href=\"#faq\" style=\"color:inherit;text-decoration:none;\">FAQ</a></li>\n      </ul>\n    </div>\n\n    <!-- Modalidades -->\n    <div>\n      <p style=\"font-weight:600;font-size:14px;color:#fff;\">Modalidades</p>\n      <ul style=\"margin-top:16px;list-style:none;padding:0;font-size:14px;color:rgba(255,255,255,0.7);\">\n        <li style=\"margin-bottom:8px;\">Tênis</li>\n        <li style=\"margin-bottom:8px;\">Padel</li>\n        <li style=\"margin-bottom:8px;\">Beach Tennis</li>\n        <li>Multiesportes</li>\n      </ul>\n    </div>\n\n    <!-- Contato -->\n    <div>\n      <p style=\"font-weight:600;font-size:14px;color:#fff;\">Fale com a gente</p>\n      <ul style=\"margin-top:16px;list-style:none;padding:0;font-size:14px;color:rgba(255,255,255,0.7);\">\n        <li style=\"margin-bottom:12px;display:flex;align-items:center;gap:8px;\">\n          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>\n          (00) 00000-0000\n        </li>\n        <li style=\"margin-bottom:12px;display:flex;align-items:center;gap:8px;\">\n          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>\n          contato@matchpoint.com.br\n        </li>\n        <li style=\"display:flex;align-items:center;gap:8px;\">\n          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><rect width=\"20\" height=\"20\" x=\"2\" y=\"2\" rx=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" x2=\"17.51\" y1=\"6.5\" y2=\"6.5\"/></svg>\n          @matchpoint\n        </li>\n      </ul>\n    </div>\n  </div>\n\n  <!-- Bottom bar -->\n  <div style=\"max-width:1280px;margin:40px auto 0;padding:24px 32px 0;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:rgba(255,255,255,0.5);\">\n    <p>&copy; 2026 MatchPoint. Todos os direitos reservados.</p>\n    <p>Feito com 🎾 para quem vive o esporte.</p>\n  </div>\n</div>\n\n<style>\n@media (max-width: 767px) {\n  .mp-footer-grid { grid-template-columns: 1fr !important; }\n}\n</style>\n"
+                "html": "\n<div style=\"border-top:1px solid rgba(255,255,255,0.1);padding:48px 0;\">\n  <div class=\"mp-footer-grid\" style=\"display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;max-width:1280px;margin:0 auto;padding:0 32px;\">\n    <div>\n      <a href=\"#top\" style=\"display:flex;align-items:center;gap:8px;font-weight:800;font-size:18px;color:#fff;text-decoration:none;font-family:'Sora',sans-serif;\">\n        <span style=\"display:grid;place-items:center;width:36px;height:36px;border-radius:12px;background:linear-gradient(135deg,#d8f84a,#3ee9d4);color:#052e1d;\">\n          <svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" fill=\"none\"><ellipse cx=\"9.5\" cy=\"8.5\" rx=\"6.5\" ry=\"7.5\" stroke=\"currentColor\" stroke-width=\"1.6\"/><path d=\"M5 4.5 15 13M4 9h11M9.5 1.5v14\" stroke=\"currentColor\" stroke-width=\"1.1\" opacity=\"0.6\"/><path d=\"M13.8 13.8 20.5 20.5\" stroke=\"currentColor\" stroke-width=\"1.8\" stroke-linecap=\"round\"/></svg>\n        </span>\n        Match<span style=\"color:#3ee9d4\">Point</span>\n      </a>\n      <p style=\"margin-top:16px;font-size:14px;color:rgba(255,255,255,0.6);max-width:280px;line-height:1.6;\">O sistema completo de gestão para clubes de tênis e padel. Agenda, alunos, pagamentos e financeiro em um só lugar.</p>\n    </div>\n    <div>\n      <p style=\"font-weight:600;font-size:14px;color:#fff;\">Produto</p>\n      <ul style=\"margin-top:16px;list-style:none;padding:0;font-size:14px;color:rgba(255,255,255,0.7);\">\n        <li style=\"margin-bottom:8px;\"><a href=\"#recursos\" style=\"color:inherit;text-decoration:none;\">Recursos</a></li>\n        <li style=\"margin-bottom:8px;\"><a href=\"#como-funciona\" style=\"color:inherit;text-decoration:none;\">Como começar</a></li>\n        <li style=\"margin-bottom:8px;\"><a href=\"#resultados\" style=\"color:inherit;text-decoration:none;\">Resultados</a></li>\n        <li style=\"margin-bottom:8px;\"><a href=\"#planos\" style=\"color:inherit;text-decoration:none;\">Planos</a></li>\n        <li><a href=\"#faq\" style=\"color:inherit;text-decoration:none;\">FAQ</a></li>\n      </ul>\n    </div>\n    <div>\n      <p style=\"font-weight:600;font-size:14px;color:#fff;\">Modalidades</p>\n      <ul style=\"margin-top:16px;list-style:none;padding:0;font-size:14px;color:rgba(255,255,255,0.7);\">\n        <li style=\"margin-bottom:8px;\">Tênis</li>\n        <li style=\"margin-bottom:8px;\">Padel</li>\n        <li style=\"margin-bottom:8px;\">Beach Tennis</li>\n        <li>Multiesportes</li>\n      </ul>\n    </div>\n    <div>\n      <p style=\"font-weight:600;font-size:14px;color:#fff;\">Fale com a gente</p>\n      <ul style=\"margin-top:16px;list-style:none;padding:0;font-size:14px;color:rgba(255,255,255,0.7);\">\n        <li style=\"margin-bottom:12px;display:flex;align-items:center;gap:8px;\">\n          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><path d=\"M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z\"/></svg>\n          (00) 00000-0000\n        </li>\n        <li style=\"margin-bottom:12px;display:flex;align-items:center;gap:8px;\">\n          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><rect width=\"20\" height=\"16\" x=\"2\" y=\"4\" rx=\"2\"/><path d=\"m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7\"/></svg>\n          contato@matchpoint.com.br\n        </li>\n        <li style=\"display:flex;align-items:center;gap:8px;\">\n          <svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#7ff5e4\" stroke-width=\"2\"><rect width=\"20\" height=\"20\" x=\"2\" y=\"2\" rx=\"5\"/><path d=\"M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z\"/><line x1=\"17.5\" x2=\"17.51\" y1=\"6.5\" y2=\"6.5\"/></svg>\n          @matchpoint\n        </li>\n      </ul>\n    </div>\n  </div>\n  <div style=\"max-width:1280px;margin:40px auto 0;padding:24px 32px 0;border-top:1px solid rgba(255,255,255,0.1);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;font-size:12px;color:rgba(255,255,255,0.5);\">\n    <p>&copy; 2026 MatchPoint. Todos os direitos reservados.</p>\n    <p>Feito com 🎾 para quem vive o esporte.</p>\n  </div>\n</div>\n"
               }
             }
           ]
